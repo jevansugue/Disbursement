@@ -1,17 +1,23 @@
 <!DOCTYPE HTML>
 
 <html>
-test
+
     <head>
     
      <link rel='stylesheet' type='text/css' href='css/index.css' />
     
         <!-- CSS PLUGINS -->
-        
+         
         <link rel='stylesheet' type='text/css' href='css/maybank/jquery-ui-1.10.4.custom.css' />
-        
+		
+		
+		<!-- 
          <link rel='stylesheet' type='text/css' href='media/css/shCore.css' />
          <link rel='stylesheet' type='text/css' href='media/css/shThemeDataTables.css' />
+		 <link rel='stylesheet' type='text/css' href='css/demo_page.css' />
+		 <link rel='stylesheet' type='text/css' href='css/demo_table.css' />
+		
+		-->
         
         
         
@@ -36,46 +42,7 @@ test
         
         
         <!--  CUSTOM CSS -->
-        <style>
-	body{
-		font: 62.5% "Trebuchet MS", sans-serif;
-		margin: 50px;
-	}
-	.demoHeaders {
-		margin-top: 2em;
-	}
-	#dialog-link {
-		padding: .4em 1em .4em 20px;
-		text-decoration: none;
-		position: relative;
-	}
-	#dialog-link span.ui-icon {
-		margin: 0 5px 0 0;
-		position: absolute;
-		left: .2em;
-		top: 50%;
-		margin-top: -8px;
-	}
-	#icons {
-		margin: 0;
-		padding: 0;
-	}
-	#icons li {
-		margin: 2px;
-		position: relative;
-		padding: 4px 0;
-		cursor: pointer;
-		float: left;
-		list-style: none;
-	}
-	#icons span.ui-icon {
-		float: left;
-		margin: 0 4px;
-	}
-	.fakewindowcontain .ui-widget-overlay {
-		position: absolute;
-	}
-	</style>
+        
     
     
       <link rel='stylesheet' type='text/css' href='css/index.css' />
@@ -83,10 +50,11 @@ test
         
         <!-- END OF CUSTOM  CSS-->
         
-        <script src='js/getAllDV.js'> </script>
+      
         
         <!-- CUSTOM JS -->
-        
+          <script src='js/getAllDV.js'> </script>
+		    <script src='js/generateLinks.js'> </script>
         
         
             <script>
@@ -95,6 +63,9 @@ test
    $(document).ready(function() {
     
                    var oTable = $('#example').dataTable( {
+				   
+				   
+				   
                         
                         "bProcessing": true,
                         "bServerSide": true,
@@ -111,10 +82,16 @@ test
                         "bSort": true,
                         "bInfo": true,
                         "bAutoWidth": true,
-                        
-                        
-                      
+                        "bSortClasses": false,
+						
+	
+						
                     } ); 
+					
+					
+		
+ 
+	
                     
                   
 
@@ -122,6 +99,10 @@ test
 
         $( "#tabs" ).tabs();
 } );
+
+
+
+
             
                 
             
@@ -144,74 +125,74 @@ test
     </head>
     
     <body>
-    
-    <div id='tabs'>
-    
-    <ul>
-		<li><a href="#tabs-1">Disbursement Vouchers</a></li>
-		<li><a href="#tabs-2">Processing</a></li>
-		<li><a href="#tabs-3">Returned</a></li>
-        <li><a href="#tabs-4">Released</a></li>
-        
-	</ul>
-    
-        <div id='tabs-1' class='tabContainer'>
-        
-            <div class=''>
-            
-               <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
-	<thead>
-		<tr>
-			<th width="20%">Date Recieved</th>
-			<th width="25%">Voucher id</th>
-			<th width="25%">Payee</th>
-			<th width="15%">DV number</th>
-			<th width="15%">gross amount</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td colspan="5" class="dataTables_empty">Loading data from server</td>
-		</tr>
-	</tbody>
-	<tfoot>
-		<tr>
-			<th>Rendering engine</th>
-			<th>Browser</th>
-			<th>Platform(s)</th>
-			<th>Engine version</th>
-			<th>CSS grade</th>
-		</tr>
-	</tfoot>
-</table>
+    <div class='tabContainer'>
+		<div id='tabs'>
+		
+		<ul>
+			<li><a href="#tabs-1">Disbursement Vouchers</a></li>
+			<li><a href="#tabs-2">Processing</a></li>
+			<li><a href="#tabs-3">Returned</a></li>
+			<li><a href="#tabs-4">Released</a></li>
+			
+		</ul>
+		
+			<div id='tabs-1' class='tabContainer'>
+			
+				<div class=''>
+				
+				   <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+		<thead>
+			<tr>
+				<th width="20%">Date Recieved</th>
+				<th width="25%">Voucher id</th>
+				<th width="25%">Payee</th>
+				<th width="15%">DV number</th>
+				<th width="15%">gross amount</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td colspan="5" class="dataTables_empty">Loading data from server</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>Rendering engine</th>
+				<th>Browser</th>
+				<th>Platform(s)</th>
+				<th>Engine version</th>
+				<th>CSS grade</th>
+			</tr>
+		</tfoot>
+	</table>
 
 
-            </div>
-                
-        </div>
-        
-        
-        <div id='tabs-2' class='tabContainer'>
-        
-            VIEW ALL PROCESSING VOUCHERS
-            
-        </div>
-        
-        <div id='tabs-3' class='tabContainer'>
-        
-           VIEW ALL RETURNED VOUCHERS
-        
-        </div>
-        
-         <div id='tabs-4' class='tabContainer'>
-        
-            VIEW ALL RELEASED VOUCHERS
-        
-        </div>
-    
+				</div>
+					
+			</div>
+			
+			
+			<div id='tabs-2' class='tabContainer'>
+			
+				VIEW ALL PROCESSING VOUCHERS
+				
+			</div>
+			
+			<div id='tabs-3' class='tabContainer'>
+			
+			   VIEW ALL RETURNED VOUCHERS
+			
+			</div>
+			
+			 <div id='tabs-4' class='tabContainer'>
+			
+				VIEW ALL RELEASED VOUCHERS
+			
+			</div>
+		
+		</div>
+		
     </div>
-    
-    
     </body>
 
 </html>

@@ -13,11 +13,7 @@
 	 * you want to insert a non-database field (for example a counter or static image)
 	 */
 	//$aColumns = array( 'engine', 'browser', 'platform', 'version', 'grade' );
-	
-	//include 'connect.php';
-	require 'connect.php';
-    
-    	$aColumns = array( 'date_receive', 'dv_id', 'payee', 'dv_num', 'g_amt');
+    $aColumns = array( 'date_receive', 'dv_id', 'payee', 'dv_num', 'g_amt');
     
     
     
@@ -28,10 +24,10 @@
 	$sTable = "disbursement_tbl";
 	
 	/* Database connection information */
-	$gaSql['user']       = getUser();
-	$gaSql['password']   = getPass();
-	$gaSql['db']         = getDatabaseName();
-	$gaSql['server']     = getHost();
+	$gaSql['user']       = "sugue";
+	$gaSql['password']   = "123456789";
+	$gaSql['db']         = "logbook";
+	$gaSql['server']     = "localhost";
 	
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -42,9 +38,11 @@
 	/* 
 	 * MySQL connection
 	 */
-	$gaSql['link'] =  connect() or die( 'Could not open connection to server' );
+	$gaSql['link'] =  mysql_pconnect( $gaSql['server'], $gaSql['user'], $gaSql['password']  ) or
+		die( 'Could not open connection to server' );
 	
-	mysql_select_db( $gaSql['db'], $gaSql['link'] ) or die( 'Could not select database '. $gaSql['db'] );
+	mysql_select_db( $gaSql['db'], $gaSql['link'] ) or 
+		die( 'Could not select database '. $gaSql['db'] );
 	
 	
 	/* 
@@ -61,6 +59,7 @@
 	/*
 	 * Ordering
 	 */
+	$sOrder = "";
 	if ( isset( $_GET['iSortCol_0'] ) )
 	{
 		$sOrder = "ORDER BY  ";
@@ -88,7 +87,7 @@
 	 * on very large tables, and MySQL's regex functionality is very limited
 	 */
 	$sWhere = "";
-	if ( $_GET['sSearch'] != "" )
+	if ( isset($_GET['sSearch']) && $_GET['sSearch'] != "" )
 	{
 		$sWhere = "WHERE (";
 		for ( $i=0 ; $i<count($aColumns) ; $i++ )
@@ -102,7 +101,7 @@
 	/* Individual column filtering */
 	for ( $i=0 ; $i<count($aColumns) ; $i++ )
 	{
-		if ( $_GET['bSearchable_'.$i] == "true" && $_GET['sSearch_'.$i] != '' )
+		if ( isset($_GET['bSearchable_'.$i]) && $_GET['bSearchable_'.$i] == "true" && $_GET['sSearch_'.$i] != '' )
 		{
 			if ( $sWhere == "" )
 			{
@@ -122,7 +121,7 @@
 	 * Get data to display
 	 */
 	$sQuery = "
-		SELECT SQL_CALC_FOUND_ROWS ".str_replace(" , ", " ", implode(", ", $aColumns))."
+		SELECT SQL_CALC_FOUND_ROWS id, ".str_replace(" , ", " ", implode(", ", $aColumns))."
 		FROM   $sTable
 		$sWhere
 		$sOrder
@@ -163,13 +162,17 @@
 		$row = array();
 		
 		// Add the row ID and class to the object
-		$row['DT_RowId'] = $aRow['dv_id'];
+		$row['DT_RowId'] = 'row_'.$aRow['id'];
+		$row['DT_RowClass'] = 'grade'.$aRow['grade'];
 		
 		for ( $i=0 ; $i<count($aColumns) ; $i++ )
 		{
-		
-			
-			if ( $aColumns[$i] != ' ' )
+			if ( $aColumns[$i] == "version" )
+			{
+				/* Special output formatting for 'version' column */
+				$row[] = ($aRow[ $aColumns[$i] ]=="0") ? '-' : $aRow[ $aColumns[$i] ];
+			}
+			else if ( $aColumns[$i] != ' ' )
 			{
 				/* General output */
 				$row[] = $aRow[ $aColumns[$i] ];
