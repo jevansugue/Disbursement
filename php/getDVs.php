@@ -13,7 +13,11 @@
 	 * you want to insert a non-database field (for example a counter or static image)
 	 */
 	//$aColumns = array( 'engine', 'browser', 'platform', 'version', 'grade' );
-    $aColumns = array( 'date_receive', 'dv_id', 'payee', 'dv_num', 'g_amt');
+	
+	//include 'connect.php';
+	require 'connect.php';
+    
+    	$aColumns = array( 'date_receive', 'dv_id', 'payee', 'dv_num', 'g_amt');
     
     
     
@@ -24,10 +28,10 @@
 	$sTable = "disbursement_tbl";
 	
 	/* Database connection information */
-	$gaSql['user']       = "sugue";
-	$gaSql['password']   = "123456789";
-	$gaSql['db']         = "logbook";
-	$gaSql['server']     = "localhost";
+	$gaSql['user']       = getUser();
+	$gaSql['password']   = getPass();
+	$gaSql['db']         = getDatabaseName();
+	$gaSql['server']     = getHost();
 	
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -38,11 +42,9 @@
 	/* 
 	 * MySQL connection
 	 */
-	$gaSql['link'] =  mysql_pconnect( $gaSql['server'], $gaSql['user'], $gaSql['password']  ) or
-		die( 'Could not open connection to server' );
+	$gaSql['link'] =  connect() or die( 'Could not open connection to server' );
 	
-	mysql_select_db( $gaSql['db'], $gaSql['link'] ) or 
-		die( 'Could not select database '. $gaSql['db'] );
+	mysql_select_db( $gaSql['db'], $gaSql['link'] ) or die( 'Could not select database '. $gaSql['db'] );
 	
 	
 	/* 
