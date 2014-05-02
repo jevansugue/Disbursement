@@ -28,7 +28,32 @@
      {
      // output form
      
-        echo "<span>" . $dvid . "</span>";
+        echo "<span> Disbursement Voucher : " . $dvid . "</span>";
+        echo "
+                <form>
+                
+                    <br />
+                    <span> Date Process </span>
+                    <input type = 'date' name='dateProc' />
+                    
+                    
+                    <br />
+                    <span> Net Amount </span>
+                    <input type = 'text' name='netAmt' />
+                    
+                    <br />
+                    <span> Check number </span>
+                    <input type = 'text' name='cNum' />
+                   
+                    <br />
+                    <input type='submit' value='confirm' />
+                    
+                </form>
+        
+        
+        
+        
+        ";
         
      
      
