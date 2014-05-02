@@ -193,7 +193,7 @@
 			
 			<div id='tabs-5' class='tabContainer'>
 			
-					<form  name="new_dv_form" method="POST" action="scripts/send_yellow.php" >
+					<form  name="new_dv_form" method="POST" action="php/encode_yellow.php" >
 					<table>
 						<tr>
 							<td class='right'> <span class='label' > Date recieved </span></td>
@@ -207,7 +207,8 @@
 							<td class='right'> <span class='label'> Category </span></td>
 							<td class='left'>
 								<select name='Category' class='field'>
-									<option selected = "true" value="PAYMENT">Payment</option>
+									<option selected = "true" value=""> Choose... </option>
+									<option value="PAYMENT">Payment</option>
 									<option value="REIMBURSE">Reimbursment</option>
 									<option value="LIQUID">Liquidation</option>
 									<option value="REP_PETT">Replenishment of Petty Cash Fund</option>
