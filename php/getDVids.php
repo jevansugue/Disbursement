@@ -1,18 +1,18 @@
 <?php
 
-    require 'php/connect.php';
+    require 'connect.php';
     
-    $dv_id = $_POST['dv_id'];
+    $dvid = $_POST['dv_id'];
     
     if(empty($_POST['dv_id']))
-            $dv_id = ''; 
+            $dvid = ''; 
             else 
-            $dv_id=$_POST['dv_id'];
+            $dvid=$_POST['dv_id'];
             
             
      $q = 'SELECT *
            FROM disbursement_tbl
-           WHERE dv_id = ' . $dv_id;
+           WHERE dv_id = ' . $dvid;
            
            
      $result=mysql_query($q) OR DIE(mysql_error());
@@ -28,7 +28,7 @@
      {
      // output form
      
-        echo "<span>" . $dv_id . "</span>";
+        echo "<span>" . $dvid . "</span>";
         
      
      

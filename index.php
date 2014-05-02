@@ -160,7 +160,7 @@
 			<div id='tabs-1' class='tabContainer'>
 			
 				<div class=''>
-                    <form method='$_POST' action='php/getDVids.php'>
+                    <form method='POST' action='php/getDVids.php'>
                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
                             <thead>
                                 <tr>
