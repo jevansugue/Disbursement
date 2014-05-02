@@ -161,6 +161,7 @@
 		// Add the row ID and class to the object
 		$row['DT_RowId'] = $aRow['dv_id'];
         
+        
 		
 		for ( $i=0 ; $i<count($aColumns) ; $i++ )
 		{
@@ -170,8 +171,9 @@
 			{
 				/* General output */
 				$row[] = $aRow[ $aColumns[$i] ];
-                $row['DT_RowName'] = $aColumns[$i];
+               /* $row['DT_RowName'] = $aColumns[$i];*/
 			}
+            $row['DT_RowName'] = $aColumns[$i];
 		}
 		$output['aaData'][] = $row;
 	}

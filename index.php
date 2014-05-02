@@ -95,14 +95,10 @@
                     }); //data tables
                     
                     
-   
-					$("table th").each(function(i, val) {
-                          var th = $(this);
-                          var selector = "td:nth-child(" + (i+1) + ")";
-                          th.parent().siblings().find(selector).attr("class", th.attr("class"));
-                    });
-                            
- 
+  
+    
+					
+                    
   
   
          
@@ -180,11 +176,12 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>CSS grade</th>
+                                    <th width="25%">Voucher id</th>
+                                    <th width="20%">Date Recieved</th>
+                                    <th width="25%">Payee</th>
+                                    <th width="15%">DV number</th>
+                                    <th width="15%">gross amount</th>
+                                    <th width="15%" hidden>net amount</th>
                                 </tr>
                             </tfoot>
                     </table>
