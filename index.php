@@ -90,7 +90,10 @@
                         "sScrollY": "200",
                         
                         "bScrollCollapse": true,						
-	
+					
+						"fnCreatedRow": function( nRow, aData, iDataIndex ) {
+							$('td:eq(0)', nRow).attr("name", "dv_id"); 
+						}
     
                     }); //data tables
                     
