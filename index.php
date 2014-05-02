@@ -184,7 +184,7 @@
                                     <th width="25%">Payee</th>
                                     <th width="15%">DV number</th>
                                     <th width="15%">gross amount</th>
-                                    <th width="15%" hidden>net amount</th>
+                                    
                                 </tr>
                             </tfoot>
                     </table>

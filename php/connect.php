@@ -7,7 +7,7 @@
 
 $host = "localhost";
 $username = "sugue";
-$password = "123456";
+$password = "123456789";
 $con = mysql_connect($host,$username,$password);
 $my_db = "disbursement_db";
 $status = 0;
