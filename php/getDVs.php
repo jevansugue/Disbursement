@@ -27,12 +27,7 @@
 	/* DB table to use */
 	$sTable = "disbursement_tbl";
 	
-	/* Database connection information */
-	$gaSql['user']       = getUser();
-	$gaSql['password']   = getPass();
-	$gaSql['db']         = getDatabaseName();
-	$gaSql['server']     = getHost();
-	
+
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	 * If you just want to use the basic configuration for DataTables with PHP server-side, there is
@@ -42,9 +37,9 @@
 	/* 
 	 * MySQL connection
 	 */
-	$gaSql['link'] =  connect() or die( 'Could not open connection to server' );
+	$link =  connect() or die( 'Could not open connection to server' );
 	
-	mysql_select_db( $gaSql['db'], $gaSql['link'] ) or die( 'Could not select database '. $gaSql['db'] );
+	mysql_select_db( getDatabaseName(), $link ) or die( 'Could not select database '. getDatabaseName() );
 	
 	
 	/* 
@@ -128,13 +123,13 @@
 		$sOrder
 		$sLimit
 	";
-	$rResult = mysql_query( $sQuery, $gaSql['link'] ) or die(mysql_error());
+	$rResult = mysql_query( $sQuery, $link ) or die(mysql_error());
 	
 	/* Data set length after filtering */
 	$sQuery = "
 		SELECT FOUND_ROWS()
 	";
-	$rResultFilterTotal = mysql_query( $sQuery, $gaSql['link'] ) or die(mysql_error());
+	$rResultFilterTotal = mysql_query( $sQuery, $link ) or die(mysql_error());
 	$aResultFilterTotal = mysql_fetch_array($rResultFilterTotal);
 	$iFilteredTotal = $aResultFilterTotal[0];
 	
@@ -143,7 +138,7 @@
 		SELECT COUNT(".$sIndexColumn.")
 		FROM   $sTable
 	";
-	$rResultTotal = mysql_query( $sQuery, $gaSql['link'] ) or die(mysql_error());
+	$rResultTotal = mysql_query( $sQuery, $link ) or die(mysql_error());
 	$aResultTotal = mysql_fetch_array($rResultTotal);
 	$iTotal = $aResultTotal[0];
 	
