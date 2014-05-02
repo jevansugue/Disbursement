@@ -96,26 +96,15 @@
                     
                     
    
-					$('thead tr').each(function() {
-                        $i = 0;
-                       var name[$i] = $('thead').val();
-                       
-                       $('tbody tr').each(function(){
-                        
-                           $(this).attr('name', $name[$i]);
-                       
-                       
-                       });
-                       
-                    $i++;
-                    
-               
-        });
-  
+					$("table th").each(function(i, val) {
+                          var th = $(this);
+                          var selector = "td:nth-child(" + (i+1) + ")";
+                          th.parent().siblings().find(selector).attr("class", th.attr("class"));
+                    });
+                            
  
   
   
-}); 
          
 
 					
