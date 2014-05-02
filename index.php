@@ -92,8 +92,7 @@
                         "bScrollCollapse": true,						
 					
 						"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).attr("name", "dv_id"); 
-							$('td:eq(0)', nRow).append("<input type='hidden' value='" + aData[iDataIndex] + "' />");
+							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id'>");
 						}
     
                     }); //data tables
