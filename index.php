@@ -164,12 +164,12 @@
                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
                             <thead>
                                 <tr>
-                                    <th width="25%">Voucher id</th>
-                                    <th width="20%">Date Recieved</th>
-                                    <th width="25%">Payee</th>
-                                    <th width="15%">DV number</th>
-                                    <th width="15%">gross amount</th>
-                                    <th width="15%" hidden>net amount</th>
+                                    <th >Voucher id</th>
+                                    <th >Date Recieved</th>
+                                    <th >Payee</th>
+                                    <th >DV number</th>
+                                    <th >gross amount</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>

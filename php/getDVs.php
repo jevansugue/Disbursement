@@ -17,7 +17,7 @@
 	//include 'connect.php';
 	require 'connect.php';
     
-    	$aColumns = array( 'dv_id', 'date_receive',  'payee', 'dv_num', 'g_amt','n_amt');
+    	$aColumns = array( 'dv_id', 'date_receive',  'payee', 'dv_num', 'g_amt');
     
     
     

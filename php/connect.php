@@ -1,37 +1,28 @@
 <?php
 
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 $host = "localhost";
-$user = "sugue";
-$pass = "123456789";
-$db = "disbursement_db";
+$username = "sugue";
+$password = "123456";
+$con = mysql_connect($host,$username,$password);
+$my_db = "disbursement_db";
 $status = 0;
 
-function connect(){
-	$lnk = mysql_connect( getHost(), getUser(), getPass() );
-	mysql_select_db(getDatabaseName());
+mysql_select_db($my_db, $con);
 
-	if(!$lnk){
-		die();
-		$status = 1;
-	}
-	
-	return $lnk;
-}
+if (!$con)
+  {
+  
+  die();
+  $status = 1;
+  }
+//else 
 
-function getDatabaseName(){
-	return $GLOBALS['db'];
-}
 
-function getHost(){
-	return $GLOBALS['host'];
-}
 
-function getUser(){
-	return $GLOBALS['user'];
-}
-
-function getPass(){
-	return $GLOBALS['pass'];
-}
 
 ?>
