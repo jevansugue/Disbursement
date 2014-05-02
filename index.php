@@ -93,6 +93,7 @@
 					
 						"fnCreatedRow": function( nRow, aData, iDataIndex ) {
 							$('td:eq(0)', nRow).attr("name", "dv_id"); 
+							$('td:eq(0)', nRow).append("<input type='hidden' value='" + aData[iDataIndex] + "' />");
 						}
     
                     }); //data tables
