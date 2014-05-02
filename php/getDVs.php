@@ -17,7 +17,7 @@
 	//include 'connect.php';
 	require 'connect.php';
     
-    	$aColumns = array( 'dv_id', 'date_receive',  'payee', 'dv_num', 'g_amt');
+    	$aColumns = array( 'dv_id', 'date_receive',  'payee', 'dv_num', 'g_amt','n_amt');
     
     
     
@@ -160,10 +160,12 @@
 	
 	while ( $aRow = mysql_fetch_array( $rResult ) )
 	{
+        
 		$row = array();
 		
 		// Add the row ID and class to the object
 		$row['DT_RowId'] = $aRow['dv_id'];
+        
 		
 		for ( $i=0 ; $i<count($aColumns) ; $i++ )
 		{
@@ -173,6 +175,7 @@
 			{
 				/* General output */
 				$row[] = $aRow[ $aColumns[$i] ];
+                $row['DT_RowName'] = $aColumns[$i];
 			}
 		}
 		$output['aaData'][] = $row;

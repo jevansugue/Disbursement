@@ -61,6 +61,9 @@
             
                 
    $(document).ready(function() {
+   
+   
+                      
     
                    var oTable = $('#example').dataTable( {
 				   
@@ -80,13 +83,41 @@
                         "bLengthChange": true,
                         "bFilter": true,
                         "bSort": true,
-                        "bInfo": true,
+                        "bInfo": false,
                         "bAutoWidth": true,
                         "bSortClasses": false,
-						
+
+                        "sScrollY": "200",
+                        
+                        "bScrollCollapse": true,						
 	
-						
-                    } ); 
+    
+                    }); //data tables
+                    
+                    
+   
+					$('thead tr').each(function() {
+                        $i = 0;
+                       var name[$i] = $('thead').val();
+                       
+                       $('tbody tr').each(function(){
+                        
+                           $(this).attr('name', $name[$i]);
+                       
+                       
+                       });
+                       
+                    $i++;
+                    
+               
+        });
+  
+ 
+  
+  
+}); 
+         
+
 					
 					
 		
@@ -95,7 +126,8 @@
                     
                   
 
-        
+       
+  
 
         $( "#tabs" ).tabs();
 } );
@@ -140,33 +172,34 @@
 			<div id='tabs-1' class='tabContainer'>
 			
 				<div class=''>
-				
-				   <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
-		<thead>
-			<tr>
-                <th width="25%">Voucher id</th>
-				<th width="20%">Date Recieved</th>
-				<th width="25%">Payee</th>
-				<th width="15%">DV number</th>
-				<th width="15%">gross amount</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td colspan="5" class="dataTables_empty">Loading data from server</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<th>Rendering engine</th>
-				<th>Browser</th>
-				<th>Platform(s)</th>
-				<th>Engine version</th>
-				<th>CSS grade</th>
-			</tr>
-		</tfoot>
-	</table>
-
+                    <form method='$_POST' action='php/getDVids.php'>
+                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                            <thead>
+                                <tr>
+                                    <th width="25%">Voucher id</th>
+                                    <th width="20%">Date Recieved</th>
+                                    <th width="25%">Payee</th>
+                                    <th width="15%">DV number</th>
+                                    <th width="15%">gross amount</th>
+                                    <th width="15%" hidden>net amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="dataTables_empty">Loading data from server</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Rendering engine</th>
+                                    <th>Browser</th>
+                                    <th>Platform(s)</th>
+                                    <th>Engine version</th>
+                                    <th>CSS grade</th>
+                                </tr>
+                            </tfoot>
+                    </table>
+                </form>
 
 				</div>
 					
