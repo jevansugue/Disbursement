@@ -62,20 +62,87 @@
                 
    $(document).ready(function() {
    
-   
-                      
-    
-                   var oTable = $('#example').dataTable( {
+					var returnTable = $('#release').dataTable( {
 				   
-				   
-				   
-                        
                         "bProcessing": true,
                         "bServerSide": true,
-                        "sAjaxSource": "php/getDVs.php",
+                        "sAjaxSource": "php/getReleaseDVs.php",
                     
-                     
-                       
+                                    
+                        "sPaginationType": "full_numbers",
+                        "bJQueryUI": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bFilter": true,
+                        "bSort": true,
+                        "bInfo": false,
+                        "bAutoWidth": true,
+                        "bSortClasses": false,
+
+                        "sScrollY": "200",
+                        
+                        "bScrollCollapse": true,						
+					
+						
+    
+                    }); //data tables   
+   
+				   var returnTable = $('#return').dataTable( {
+				   
+                        "bProcessing": true,
+                        "bServerSide": true,
+                        "sAjaxSource": "php/getReturnedDVs.php",
+                    
+                                    
+                        "sPaginationType": "full_numbers",
+                        "bJQueryUI": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bFilter": true,
+                        "bSort": true,
+                        "bInfo": false,
+                        "bAutoWidth": true,
+                        "bSortClasses": false,
+
+                        "sScrollY": "200",
+                        
+                        "bScrollCollapse": true,						
+					
+						
+    
+                    }); //data tables   
+					
+                   var readyTable = $('#forproc').dataTable( {
+				   
+                        "bProcessing": true,
+                        "bServerSide": true,
+                        "sAjaxSource": "php/getForProcDVs.php",
+                    
+                                    
+                        "sPaginationType": "full_numbers",
+                        "bJQueryUI": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bFilter": true,
+                        "bSort": true,
+                        "bInfo": false,
+                        "bAutoWidth": true,
+                        "bSortClasses": false,
+
+                        "sScrollY": "200",
+                        
+                        "bScrollCollapse": true,						
+					
+						
+    
+                    }); //data tables   
+    
+                   var procTable = $('#encoded').dataTable( {
+				   
+                        "bProcessing": true,
+                        "bServerSide": true,
+                        "sAjaxSource": "php/getEncodedDVs.php",
+                    
                                     
                         "sPaginationType": "full_numbers",
                         "bJQueryUI": true,
@@ -97,25 +164,6 @@
     
                     }); //data tables
                     
-                    
-  
-    
-					
-                    
-  
-  
-         
-
-					
-					
-		
- 
-	
-                    
-                  
-
-       
-  
 
         $( "#tabs" ).tabs();
 } );
@@ -161,7 +209,7 @@
 			
 				<div class=''>
                     <form method='POST' action='php/getDVids.php'>
-                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="encoded">
                             <thead>
                                 <tr>
                                     <th >Voucher id</th>
@@ -197,19 +245,108 @@
 			
 			<div id='tabs-2' class='tabContainer'>
 			
-				VIEW ALL PROCESSING VOUCHERS
-				
+				<div class=''>
+                    <form method='POST' action='php/getDVids.php'>
+                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="forproc">
+                            <thead>
+                                <tr>
+                                    <th >Voucher id</th>
+                                    <th >Date Recieved</th>
+                                    <th >Payee</th>
+                                    <th >DV number</th>
+                                    <th >gross amount</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="dataTables_empty">Loading data from server</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th width="25%">Voucher id</th>
+                                    <th width="20%">Date Recieved</th>
+                                    <th width="25%">Payee</th>
+                                    <th width="15%">DV number</th>
+                                    <th width="15%">gross amount</th>
+                                    
+                                </tr>
+                            </tfoot>
+						</table>
+					</form>
+
+				</div>
 			</div>
 			
 			<div id='tabs-3' class='tabContainer'>
 			
-			   VIEW ALL RETURNED VOUCHERS
-			
+				<div class=''>
+					<form method='POST' action='php/getDVids.php'>
+                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="return">
+                            <thead>
+                                <tr>
+                                    <th >Voucher id</th>
+                                    <th >Date Recieved</th>
+                                    <th >Payee</th>
+                                    <th >DV number</th>
+                                    <th >gross amount</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="dataTables_empty">Loading data from server</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th width="25%">Voucher id</th>
+                                    <th width="20%">Date Recieved</th>
+                                    <th width="25%">Payee</th>
+                                    <th width="15%">DV number</th>
+                                    <th width="15%">gross amount</th>
+                                    
+                                </tr>
+                            </tfoot>
+						</table>
+					</form>
+				</div>
 			</div>
 			
 			 <div id='tabs-4' class='tabContainer'>
 			
-				VIEW ALL RELEASED VOUCHERS
+				<div class=''>
+					<form method='POST' action='php/getDVids.php'>
+                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="release">
+                            <thead>
+                                <tr>
+                                    <th >Voucher id</th>
+                                    <th >Date Recieved</th>
+                                    <th >Payee</th>
+                                    <th >DV number</th>
+                                    <th >gross amount</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="dataTables_empty">Loading data from server</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th width="25%">Voucher id</th>
+                                    <th width="20%">Date Recieved</th>
+                                    <th width="25%">Payee</th>
+                                    <th width="15%">DV number</th>
+                                    <th width="15%">gross amount</th>
+                                    
+                                </tr>
+                            </tfoot>
+						</table>
+					</form>
+				</div>
 			
 			</div>
 			

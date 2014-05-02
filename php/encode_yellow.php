@@ -60,7 +60,7 @@ function getNextDv($date_rec){
 	$g_amt = $_POST['GrossAmount'];
 	$req_party = $_POST['req_party'];
 	$req_unit = $_POST['req_unit'];;
-	$status = "FOR REVIEW";
+	$status = "ENCODED";
 	
 	$DVNUM = getNextDv($date_rec);
 	
