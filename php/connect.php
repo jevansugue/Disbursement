@@ -8,7 +8,8 @@ $status = 0;
 
 function connect(){
 	$lnk = mysql_connect( getHost(), getUser(), getPass() );
-	
+	mysql_select_db(getDatabaseName());
+
 	if(!$lnk){
 		die();
 		$status = 1;
