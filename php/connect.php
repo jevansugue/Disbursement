@@ -1,8 +1,8 @@
 <?php
 
 $host = "localhost";
-$user = "root";
-$pass = "";
+$user = "sugue";
+$pass = "123456789";
 $db = "disbursement_db";
 $status = 0;
 

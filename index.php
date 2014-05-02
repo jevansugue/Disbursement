@@ -144,8 +144,8 @@
 				   <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 		<thead>
 			<tr>
+                <th width="25%">Voucher id</th>
 				<th width="20%">Date Recieved</th>
-				<th width="25%">Voucher id</th>
 				<th width="25%">Payee</th>
 				<th width="15%">DV number</th>
 				<th width="15%">gross amount</th>
