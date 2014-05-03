@@ -82,7 +82,7 @@
 	 * word by word on any field. It's possible to do here, but concerned about efficiency
 	 * on very large tables, and MySQL's regex functionality is very limited
 	 */
-	$sWhere = "";// = "status = 'FOR_PROCESS'";
+	$sWhere = "WHERE `status` = 'FOR_PROCESS'";
 	if ( $_GET['sSearch'] != "" )
 	{
 		$sWhere = "WHERE (";
