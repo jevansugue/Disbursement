@@ -208,7 +208,7 @@
 			<div id='tabs-1' class='tabContainer'>
 			
 				<div class=''>
-                    <form method='POST' action='php/getDVids.php'>
+                    <form method='POST' action='getDVids.php'>
                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="encoded">
                             <thead>
                                 <tr>
@@ -352,7 +352,7 @@
 			
 			<div id='tabs-5' class='tabContainer'>
 			
-				<form  name="new_dv_form" method="POST" action="php/encode_yellow.php" >
+					<form  name="new_dv_form" method="POST" action="php/encode_yellow.php" >
 					<table>
 						<tr>
 							<td class='right'> <span class='label' > Date recieved </span></td>
