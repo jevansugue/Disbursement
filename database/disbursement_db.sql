@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `disbursement_tbl` (
   `tax_req` varchar(255) DEFAULT NULL,
   `tin_num` varchar(255) DEFAULT NULL,
   `nat_of_pay` varchar(255) DEFAULT NULL,
-  `status` enum('ENCODED' 'FOR_PROCESS','RETURNED', 'RELEASE') DEFAULT NULL,
+  `status` enum('ENCODED', 'FOR_PROCESS','RETURNED', 'RELEASE') DEFAULT NULL,
   PRIMARY KEY (`dv_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
