@@ -1,6 +1,6 @@
 <?php
 
-    require 'connect.php';
+    require 'php/connect.php';
     
     $dvid = $_POST['dv_id'];
     
@@ -22,7 +22,7 @@
      if($row[0] = NULL)
      {
         echo 'No record';
-     
+
      }
      else
      {
@@ -30,11 +30,12 @@
      
         echo "<span> Disbursement Voucher : " . $dvid . "</span>";
         echo "
-                <form>
-                
+                <form method='POST' action='php/encode_red.php'>
+					
+					<input type='hidden' value='" . $dvid . "' name='dvid' />
                     <br />
                     <span> Date Process </span>
-                    <input type = 'date' name='dateProc' />
+                    <input type = 'date' name='dateProc' value='" . date('Y-m-d') . "'/>
                     
                     
                     <br />
@@ -59,6 +60,6 @@
      
      }
 
-
+	mysql_close();
 
 ?>
