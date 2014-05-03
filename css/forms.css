@@ -1,0 +1,32 @@
+#encode
+{
+	border: 1px solid green;
+	width: 35em;
+	height: 26em;
+	position: relative;
+	margin: 0 auto;
+}
+
+#submit
+{
+	margin-left: 50%;
+	width: 5em;
+}
+
+span.form
+{
+	float: left;
+	width: 8.5em;
+	text-align: right;
+	margin-bottom: 1em;
+	margin-left: 2em;
+}
+
+.field
+{
+	float: left;
+	margin-left: 1.5em;
+	margin-bottom: 1em;
+	width: 18em;
+}
+

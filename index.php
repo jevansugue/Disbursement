@@ -352,61 +352,54 @@
 			
 			<div id='tabs-5' class='tabContainer'>
 			
-					<form  name="new_dv_form" method="POST" action="php/encode_yellow.php" >
-					<table>
-						<tr>
-							<td class='right'> <span class='label' > Date recieved </span></td>
-							<td class='left'><input type='date' name="date_recieved" class='field' value="<?php echo date('Y-m-d'); ?>" /></td>
-						</tr>
-						<tr>
-							<td class='right'> <span class='label' > Payee </span></td>
-							<td class='left'><input type='text' name="payee" class='field'  /></td>
-						</tr>
-						<tr>
-							<td class='right'> <span class='label'> Category </span></td>
-							<td class='left'>
-								<select name='Category' class='field'>
-									<option selected = "true" value=""> Choose... </option>
-									<option value="PAYMENT">Payment</option>
-									<option value="REIMBURSE">Reimbursment</option>
-									<option value="LIQUID">Liquidation</option>
-									<option value="REP_PETT">Replenishment of Petty Cash Fund</option>
-									<option value="CASH_ADV">Cash Advance</option>
-									<option value="OTHER">Other</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td class='right'> <span class='label' > subcategory </span></td>
-							<td class='left'><input type='text' name="subcat" class='field'  /></td>
-						</tr>
-						<tr>
-							<td class='right'> <span class='label'> Gross amount </span></td>
-							<td class='left'> <input type='text' name="GrossAmount" class='field' /></td>
-						</tr>
-						<tr>
-							<td class='right'> <span class='label'> Mode </span></td>
-							<td class='left'>
-								<select name='mode' class='field'>
-									<option selected="true"></option>
-									<option value="CTA">Credit to Account</option>
-									<option value="MC">Master's check</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td class="right"> <span class='label'>Requesting party</span></td>
-							<td class='left'><input type='text' name="req_party" class='field' /></td>
-						</tr>
+				<form  name="new_dv_form" method="POST" action="php/encode_yellow.php" id="encode">
+					<br />
+					
+					<label><span class='form' > Date recieved </span></label>
+					<input type='date' name="date_recieved" class='field' value="<?php echo date('Y-m-d'); ?>" />
+					<br />
+					
+					<span class='form' > Payee </span>
+					<input type='text' name="payee" class='field'  />
+					<br />					
+							
+					<label><span class='form'> Category </span></label>
+					<select name='Category' class='field'>
+						<option selected = "true" value=""> Choose... </option>
+						<option value="PAYMENT">Payment</option>
+						<option value="REIMBURSE">Reimbursment</option>
+						<option value="LIQUID">Liquidation</option>
+						<option value="REP_PETT">Replenishment of Petty Cash Fund</option>
+						<option value="CASH_ADV">Cash Advance</option>
+						<option value="OTHER">Other</option>
+					</select>
+					<br />		
 						
-						<tr>
-							<td class="right"> <span class='label'>Requesting unit</span></td>
-							<td class='left'><input type='text' name="req_unit" class='field' /></td>
-						</tr>
+					<label><span class='form' > subcategory </span></label>
+					<input type='text' name="subcat" class='field'  />
+					<br />
+					
+					<label><span class='form'> Gross amount </span></label>
+					<input type='text' name="GrossAmount" class='field' />
+					<br />
 						
+					<label><span class='form'> Mode </span><label>
+					<select name='mode' class='field'>
+						<option selected = "true" value=""> Choose... </option>
+						<option value="CTA">Credit to Account</option>
+						<option value="MC">Master's check</option>
+					</select>
+					<br />		
 						
-					</table>
-					<input type="submit">
+					<label><span class='form'>Requesting party</span><label>
+					<input type='text' name="req_party" class='field' />
+					<br />
+						
+					<label><span class='form'>Requesting unit</span></label>
+					<input type='text' name="req_unit" class='field' />						
+					<br />
+					
+					<input type="submit" id="submit">
 				</form>
 		
 			</div>
