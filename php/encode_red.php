@@ -1,12 +1,13 @@
 <?php
 	require 'connect.php';
+	session_start();
 	
 	$tbl_name = "disbursement_tbl";
-	$dvid = $_POST['dvid'];
 	
-	$date_proc = $_POST['dateProc'];
-	$net_amt = $_POST['netAmt'];
-	$check_num = $_POST['cNum'];
+	$dvid = $_SESSION['dvid'];
+	$date_proc = $_SESSION['dateProc'];
+	$net_amt = $_SESSION['netAmt'];
+	$check_num = $_SESSION['cNum'];
 
 	$q = "UPDATE `" . $tbl_name . "` 
 			SET 
@@ -17,5 +18,8 @@
 			WHERE `dv_id`='" . $dvid . "';";
 
 	mysql_query($q) or die(mysql_error());
-	mysql_close();
+	
+	mysql_close();	
+	session_destroy();
+	header('Location: ..');
 ?>

@@ -30,7 +30,7 @@
      
         echo "<span> Disbursement Voucher : " . $dvid . "</span>";
         echo "
-                <form method='POST' action='php/encode_red.php'>
+                <form method='POST' action='php/action.php'>
 					
 					<input type='hidden' value='" . $dvid . "' name='dvid' />
                     <br />
@@ -47,8 +47,8 @@
                     <input type = 'text' name='cNum' />
                    
                     <br />
-                    <input type='submit' value='confirm' />
-                    
+                    <input type='submit' name='action' value='confirm' />
+                    <input type='submit' name='action' value='return' />
                 </form>
         
         
