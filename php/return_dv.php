@@ -18,7 +18,8 @@
 			('" . $dvid . "', '" . $date_ret . "');
 			";
 	
-	mysql_query($changeStatusq . $insertDateRetq);
+	mysql_query($changeStatusq);
+	mysql_query($insertDateRetq);
 		
 	mysql_close();
 	
