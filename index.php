@@ -246,7 +246,7 @@
 			<div id='tabs-2' class='tabContainer'>
 			
 				<div class=''>
-                    <form method='POST' action='php/getDVids.php'>
+                    <form method='POST' action='#process'>
                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="forproc">
                             <thead>
                                 <tr>
@@ -282,7 +282,7 @@
 			<div id='tabs-3' class='tabContainer'>
 			
 				<div class=''>
-					<form method='POST' action='php/getDVids.php'>
+					<form method='POST' action='#returned'>
                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="return">
                             <thead>
                                 <tr>
@@ -317,7 +317,7 @@
 			 <div id='tabs-4' class='tabContainer'>
 			
 				<div class=''>
-					<form method='POST' action='php/getDVids.php'>
+					<form method='POST' action='#released'>
                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="release">
                             <thead>
                                 <tr>
@@ -352,7 +352,7 @@
 			
 			<div id='tabs-5' class='tabContainer'>
 			
-					<form  name="new_dv_form" method="POST" action="php/encode_yellow.php" >
+				<form  name="new_dv_form" method="POST" action="php/encode_yellow.php" >
 					<table>
 						<tr>
 							<td class='right'> <span class='label' > Date recieved </span></td>
