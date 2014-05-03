@@ -150,3 +150,13 @@ background-color: #fff3cb;
   
 
 }
+
+.submitDvId
+{
+	background:none;
+	padding: 0px;
+	border: none;
+	text-decoration:underline;
+	color: blue;
+	outline:none;
+}
