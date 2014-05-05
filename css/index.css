@@ -111,7 +111,7 @@ table.display td.center {
 .tabContainer
 {
  width: auto;
- 
+ margin: .5em auto;
 
 
 }
@@ -167,6 +167,15 @@ background-color: #fff3cb;
 	display: inline;
 	
 }
+
+#logoCon
+{
+	
+	display:inline-block;
+	border: 1px solid blue;
+	
+
+}
 #navBarCon
 {
 		
@@ -177,15 +186,20 @@ background-color: #fff3cb;
 #navBarCon
 {
 	border: 1px solid red;
+	vertical-align:center;
 	
 
 }
-#menuCont
+
+
+#menuCont2
 {
 	border: 1px solid green;
 	width: 50em;
 	position:relative;
 	margin-left: 5.25em;
+	vertical-align: middle;
+	
 	margin-top: -5.25em;
 	height: 5em;
 	
@@ -203,7 +217,7 @@ background-color: #fff3cb;
 
 .ui-menu .ui-menu-item {
     display: inline-block;
-    float: left;
+    float: right;
     margin: 0;
     padding: 0;
     width: 5em;
@@ -211,10 +225,4 @@ background-color: #fff3cb;
 	
 }
 
-#logoCon
-{
-	border: 1px solid blue;
-	width: 5em;
-	height: 5em; 	
 
-}

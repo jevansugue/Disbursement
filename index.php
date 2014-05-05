@@ -209,19 +209,23 @@
 	
 	<div id='navBarCon'>
 	
-		<div id='logoCon'>
 		
-		
-			</div>
 		<div id='menuCont'>
 		
 			<ul id='menu' >
 				
-
-				<li class='menuList'>  <a href='#' class='active'>   Home  </a> </li>
-				<li class='menuList'>  <a href='#' class='inActive' >  Reports  </a> </li>
-				<li class='menuList'>  <a href='#' class='inActive' >  Sign in </a> </li>
+				<div id='logoCon'>
+		
+					Disbursement System
 				
+				</div>
+
+				<li class='menuList'>  <a href='#' class='inActive' >  Sign in </a> </li>
+				<li class='menuList'>  <a href='#' class='inActive' >  Reports  </a> </li>
+				
+				<li class='menuList'>  <a href='#' class='active'>   Home  </a> </li>
+				
+			
 			</ul>
 			
 		</div>
