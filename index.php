@@ -392,9 +392,10 @@
 			
 			<div id='tabs-5' class='tabContainer'>
 			
-				<form  name="new_dv_form" method="POST" action="php/encode_yellow.php" id="encode">
+				<form  name="new_dv_form" method="POST" action="php/encode_yellow.php" id="encode-yellow">
 					<fieldset>
-											
+						<br />
+						
 						<label><span class='form' > Date recieved </span></label>
 						<input type='date' name="date_recieved" class='field' value="<?php echo date('Y-m-d'); ?>" />
 						<br />
@@ -436,7 +437,15 @@
 						<br />
 							
 						<label><span class='form'>Requesting unit</span></label>
-						<input type='text' name="req_unit" class='field' />						
+						<select name='req_unit' class='field'>
+							<option selected = "true" value=""> Choose... </option>
+							<option value="DEPT1">Department1</option>
+							<option value="DEPT2">Department2</option>
+							<option value="DEPT3">Department3</option>
+							<option value="DEPT4">Department4</option>
+							<option value="DEPT5">Department5</option>
+							<option value="DEPT6">Department6</option>
+						</select>
 						<br />
 						
 						<input type="submit" id="submit">

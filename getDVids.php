@@ -117,12 +117,22 @@
     <div class='tabContainer'>
 		<div id='tabs'>
 			<div id='tabs-1' class='tabContainer'>
-				<form method='POST' action='php/action.php' id='encode'>
+				<form method='POST' action='php/action.php' id='encode-red'>
 						<?php
 							if(mysql_num_rows($result) > 0){
 								echo "
 									<fieldset>
-										<legend> Disbursement Voucher : " . $dvid . "</legend>	
+										<legend class='legend-form'> <b> Disbursement Voucher : </b>" . $dvid . "</legend>	
+										<br />
+										
+										<label><span class='form'> Payee :</span></label>
+										<span class='field'> " . $row['payee'] . " </span>
+										<label><span class='form'> Gross amount :</span></label>
+										<span class='field'> " . $row['g_amt'] . " </span>
+										<label><span class='form'> Date Recieved :</span></label>
+										<span class='field'> " . $row['date_receive'] . " </span>
+										<br/>
+										
 										<input type='hidden' value='" . $dvid . "' name='dvid' />
 										<input type='hidden' value='" . $row['date_receive'] . "' name='date_rec' />
 										<br />
