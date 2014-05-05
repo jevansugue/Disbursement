@@ -8,7 +8,7 @@
 
 #submit
 {
-	margin-left: 50%;
+	margin-left: 40%;
 	width: 5em;
 }
 
@@ -17,7 +17,6 @@
 	width: 5em;
 	float: left;
 	clear: left;
-	margin-right: 0.5em;
 	margin-left: 37%;
 }
 
@@ -25,7 +24,7 @@
 {
 	width: 5em;
 	float: left;
-	margin-left: 0.5em;
+	margin-left: 1em;
 }
 
 span.form

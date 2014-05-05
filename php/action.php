@@ -15,11 +15,14 @@
 	$_SESSION['cNum'] = $check_num;
 	$_SESSION['date_rec'] = $date_rec;
 	
-	if( $action == 'confirm'){
+	if( $action == 'save'){
 		header('Location: encode_red.php');
 	}
-	else{
+	else if( $action == 'return dv') {
 		header('Location: return_dv.php');
 	}
-
+	else{
+		session_destroy();
+		header('Location: ..');
+	}
 ?>

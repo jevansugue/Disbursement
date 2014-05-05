@@ -139,8 +139,9 @@
 										<input type = 'text' name='cNum' class='field'/>
 										<br />
 										
-										<input type='submit' name='action' value='confirm' id='confirm'/>
-										<input type='submit' name='action' value='return' id='return'/>
+										<input type='submit' name='action' value='save' id='confirm'/>
+										<input type='submit' name='action' value='return dv' id='return'/>
+										<input type='submit' name='action' value='cancel' id='return'/>
 									</fieldset>
 									
 								";
