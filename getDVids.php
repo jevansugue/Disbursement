@@ -1,6 +1,8 @@
 <html>
 <head>
 	<link rel='stylesheet' type='text/css' href='css/forms.css' />
+    <link rel='stylesheet' type='text/css' href='css/index.css' />
+
 <?php
 
     require 'php/connect.php';
@@ -25,8 +27,10 @@
 	<form method='POST' action='php/action.php' id='encode'>
 		<?php
 			if(mysql_num_rows($result) > 0){
-				echo "<fieldset>
-					<legend> Disbursement Voucher : " . $dvid . "</legend>	
+				echo "
+				<div class='tabContainer'>
+					<fieldset>
+						<legend> Disbursement Voucher : " . $dvid . "</legend>	
 						<input type='hidden' value='" . $dvid . "' name='dvid' />
 						<input type='hidden' value='" . $row['date_receive'] . "' name='date_rec' />
 						<br />
@@ -45,7 +49,10 @@
 						
 						<input type='submit' name='action' value='confirm' id='confirm'/>
 						<input type='submit' name='action' value='return' id='return'/>
-					</fieldset>";
+					</fieldset>
+					
+				</div>	
+				";
 			}
 			else{
 				echo "<script type='text/javascript'>";
