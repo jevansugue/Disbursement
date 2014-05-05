@@ -10,6 +10,7 @@
         <!-- CSS PLUGINS -->
          
         <link rel='stylesheet' type='text/css' href='css/maybank/jquery-ui-1.10.4.custom.css' />
+		<link rel='stylesheet' type='text/css' href='css/colorbox.css' />
 		
 		
 		<!-- 
@@ -36,6 +37,7 @@
        <script src='js/jquery.dataTables.js'> </script>
        <script src='media/js/shCore.js'> </script>
        <script src='media/js/shBrushJscript.js'> </script>
+	   <script src='media/js/jquery.colorbox.js'> </script>
         
             
         
@@ -74,12 +76,11 @@
                         "bJQueryUI": true,
                         "bPaginate": true,
                         "bLengthChange": true,
-                        "bFilter": true,
+                        
                         "bSort": true,
                         "bInfo": false,
-                        "bAutoWidth": true,
-                        "bSortClasses": false,
-
+                        "bAutoWidth": false,
+                        
                         "sScrollY": "200",
                         
                         "bScrollCollapse": true,						
@@ -93,17 +94,17 @@
                         "bProcessing": true,
                         "bServerSide": true,
                         "sAjaxSource": "php/getReturnedDVs.php",
-                    
+						
                                     
                         "sPaginationType": "full_numbers",
                         "bJQueryUI": true,
                         "bPaginate": true,
                         "bLengthChange": true,
-                        "bFilter": true,
+                        
                         "bSort": true,
                         "bInfo": false,
-                        "bAutoWidth": true,
-                        "bSortClasses": false,
+                        "bAutoWidth": false,
+                        
 
                         "sScrollY": "200",
                         
@@ -119,16 +120,17 @@
                         "bServerSide": true,
                         "sAjaxSource": "php/getForProcDVs.php",
                     
+						
                                     
                         "sPaginationType": "full_numbers",
                         "bJQueryUI": true,
                         "bPaginate": true,
                         "bLengthChange": true,
-                        "bFilter": true,
+                     
                         "bSort": true,
                         "bInfo": false,
-                        "bAutoWidth": true,
-                        "bSortClasses": false,
+                        "bAutoWidth": false,
+                        
 
                         "sScrollY": "200",
                         
@@ -144,17 +146,16 @@
                         "bServerSide": true,
                         "sAjaxSource": "php/getEncodedDVs.php",
                     
-                                    
+                        "bPaginate": true,         
                         "sPaginationType": "full_numbers",
                         "bJQueryUI": true,
-                        "bPaginate": true,
+                        
                         "bLengthChange": true,
-                        "bFilter": true,
-                        "bSort": true,
-                        "bInfo": false,
-                        "bAutoWidth": true,
-                        "bSortClasses": false,
-
+                        
+                       
+                       
+                        "bAutoWidth": false,
+                        
                         "sScrollY": "200",
                         
                         "bScrollCollapse": true,						
@@ -162,11 +163,16 @@
 						"fnCreatedRow": function( nRow, aData, iDataIndex ) {
 							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
 						}
+						
+					
     
                     }); //data tables
                     
 
-        $( "#tabs" ).tabs();
+	
+		
+		
+		
 		
 } );
 
@@ -183,14 +189,28 @@
             
                  $(function() {
 				 
-			$( "#menu" ).menu({
+			$( "#menu" ).menu();
+			
+				$('#tabs ul').show({
+				
+				
+		
+		
+		
+		});
+        $( "#tabs" ).tabs({
+		
+		
+			"show": function(event, ui, readyTable) {
+					
+			},
+		
+		
+		});
 			
 			
 			
 			
-			
-			
-			});
   });
             
             
@@ -252,11 +272,11 @@
                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="encoded">
                             <thead>
                                 <tr>
-                                    <th >Voucher id</th>
-                                    <th >Date Recieved</th>
-                                    <th >Payee</th>
-                                    <th >DV number</th>
-                                    <th >gross amount</th>
+                                    <th class='cHeader' >Voucher id</th>
+                                    <th class='cHeader'>Date Recieved</th>
+                                    <th class='cHeader'>Payee</th>
+                                    <th class='cHeader'>DV number</th>
+                                    <th class='cHeader'>gross amount</th>
                                     
                                 </tr>
                             </thead>
@@ -339,16 +359,7 @@
                                     <td colspan="5" class="dataTables_empty">Loading data from server</td>
                                 </tr>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th width="25%">Voucher id</th>
-                                    <th width="20%">Date Recieved</th>
-                                    <th width="25%">Payee</th>
-                                    <th width="15%">DV number</th>
-                                    <th width="15%">gross amount</th>
-                                    
-                                </tr>
-                            </tfoot>
+                            
 						</table>
 					</form>
 				</div>
