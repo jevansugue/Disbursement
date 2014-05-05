@@ -18,6 +18,10 @@
 	if( $action == 'confirm'){
 		header('Location: encode_red.php');
 	}
+	else if( $action == 'cancel'){
+		session_destroy();
+		header('Location: ..');
+	}
 	else{
 		header('Location: return_dv.php');
 	}
