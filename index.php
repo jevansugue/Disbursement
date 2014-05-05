@@ -60,162 +60,203 @@
 		    <script src='js/generateLinks.js'> </script>
         
         
-            <script>
+	<script>
             
                 
-   $(document).ready(function() {
-   
-					var returnTable = $('#release').dataTable( {
-				   
-                        "bProcessing": true,
-                        "bServerSide": true,
-                        "sAjaxSource": "php/getReleaseDVs.php",
-                    
-                                    
-                        "sPaginationType": "full_numbers",
-                        "bJQueryUI": true,
-                        "bPaginate": true,
-                        "bLengthChange": true,
-                        
-                        "bSort": true,
-                        "bInfo": false,
-                        "bAutoWidth": false,
-                        
-                        "sScrollY": "200",
-                        
-                        "bScrollCollapse": true,						
-					
+	   $(document).ready(function() {
+			var returnTable;
+			var releaseTable;
+			var forprocTable;
+			var encodedTable;
+			
+			//PRE LOADED TABLE
+			encodedTable = $('#encoded').dataTable( {					   
+					"bProcessing": true,
+					"bServerSide": true,
+					"sAjaxSource": "php/getEncodedDVs.php",
+					"sPaginationType": "full_numbers",
+					"bJQueryUI": true,
+					"bPaginate": true,
+					"bLengthChange": true,
+					"bFilter": true,
+					"bSort": true,
+					"bInfo": false,
+					"bAutoWidth": true,
+					"bSortClasses": false,
+					"sScrollY": "200",							
+					"bScrollCollapse": true,						
+			}); 
+			
+			//DEBUG
+			 forprocTable = $('#forproc').dataTable( {					   
+					"bProcessing": true,
+					"bServerSide": true,
+					"sAjaxSource": "php/getForProcDVs.php",
+					"sPaginationType": "full_numbers",
+					"bJQueryUI": true,
+					"bPaginate": true,
+					"bLengthChange": true,
+					"bFilter": true,
+					"bSort": true,
+					"bInfo": false,
+					"bAutoWidth": true,
+					"bSortClasses": false,
+					"sScrollY": "200",							
+					"bScrollCollapse": true,						
+				});
+
+				returnTable = $('#return').dataTable( {					   
+					"bProcessing": true,
+					"bServerSide": true,
+					"sAjaxSource": "php/getReturnedDVs.php",
+					"sPaginationType": "full_numbers",
+					"bJQueryUI": true,
+					"bPaginate": true,
+					"bLengthChange": true,
+					"bFilter": true,
+					"bSort": true,
+					"bInfo": false,
+					"bAutoWidth": true,
+					"bSortClasses": false,
+					"sScrollY": "200",							
+					"bScrollCollapse": true,						
+				});    
+				
+				releaseTable = $('#release').dataTable( {					   
+					"bProcessing": true,
+					"bServerSide": true,
+					"sAjaxSource": "php/getReleaseDVs.php",
+					"sPaginationType": "full_numbers",
+					"bJQueryUI": true,
+					"bPaginate": true,
+					"bLengthChange": true,
+					"bFilter": true,
+					"bSort": true,
+					"bInfo": false,
+					"bAutoWidth": true,
+					"bSortClasses": false,
+					"sScrollY": "200",							
+					"bScrollCollapse": true,						
+				});    
+			//END PRELOAD
+			
+			
+			$('#encoded-li').on('click', function(){
+				if(encodedTable != 'undefined'){
+					encodedTable.dataTable().fnDestroy();
+				}
+				 encodedTable = $('#encoded').dataTable( {					   
+					"bProcessing": true,
+					"bServerSide": true,
+					"sAjaxSource": "php/getEncodedDVs.php",
+					"sPaginationType": "full_numbers",
+					"bJQueryUI": true,
+					"bPaginate": true,
+					"bLengthChange": true,
+					"bFilter": true,
+					"bSort": true,
+					"bInfo": false,
+					"bAutoWidth": true,
+					"bSortClasses": false,
+					"sScrollY": "200",							
+					"bScrollCollapse": true,						
+				});    
+				
+			});
+			
+			$('#forproc-li').on('click', function(){
+				if(forprocTable != 'undefined'){
+					forprocTable.dataTable().fnClearTable().fnDestroy();
+				}
+				
+				 forprocTable = $('#forproc').dataTable( {					   
+					"bProcessing": true,
+					"bServerSide": true,
+					"sAjaxSource": "php/getForProcDVs.php",
+					"sPaginationType": "full_numbers",
+					"bJQueryUI": true,
+					"bPaginate": true,
+					"bLengthChange": true,
+					"bFilter": true,
+					"bSort": true,
+					"bInfo": false,
+					"bAutoWidth": true,
+					"bSortClasses": false,
+					"sScrollY": "200",							
+					"bScrollCollapse": true,						
+				});    
+			});
+			
+			$('#return-li').on('click', function(){
+				if(returnTable != 'undefined'){
+					returnTable.dataTable().fnDestroy();
+				}
+				
+				 returnTable = $('#return').dataTable( {					   
+					"bProcessing": true,
+					"bServerSide": true,
+					"sAjaxSource": "php/getReturnedDVs.php",
+					"sPaginationType": "full_numbers",
+					"bJQueryUI": true,
+					"bPaginate": true,
+					"bLengthChange": true,
+					"bFilter": true,
+					"bSort": true,
+					"bInfo": false,
+					"bAutoWidth": true,
+					"bSortClasses": false,
+					"sScrollY": "200",							
+					"bScrollCollapse": true,						
+				});    
+			});
+			
+			$('#release-li').on('click', function(){
+				if(releaseTable != 'undefined'){
+					releaseTable.dataTable().fnDestroy();
+				}
+				 releaseTable = $('#release').dataTable( {					   
+					"bProcessing": true,
+					"bServerSide": true,
+					"sAjaxSource": "php/getReleaseDVs.php",
+					"sPaginationType": "full_numbers",
+					"bJQueryUI": true,
+					"bPaginate": true,
+					"bLengthChange": true,
+					"bFilter": true,
+					"bSort": true,
+					"bInfo": false,
+					"bAutoWidth": true,
+					"bSortClasses": false,
+					"sScrollY": "200",							
+					"bScrollCollapse": true,						
+				});    
+			});
 						
-    
-                    }); //data tables   
-   
-				   var returnTable = $('#return').dataTable( {
-				   
-                        "bProcessing": true,
-                        "bServerSide": true,
-                        "sAjaxSource": "php/getReturnedDVs.php",
-						
-                                    
-                        "sPaginationType": "full_numbers",
-                        "bJQueryUI": true,
-                        "bPaginate": true,
-                        "bLengthChange": true,
-                        
-                        "bSort": true,
-                        "bInfo": false,
-                        "bAutoWidth": false,
-                        
+	} );
 
-                        "sScrollY": "200",
-                        
-                        "bScrollCollapse": true,						
-					
-						
-    
-                    }); //data tables   
-					
-                   var readyTable = $('#forproc').dataTable( {
-				   
-                        "bProcessing": true,
-                        "bServerSide": true,
-                        "sAjaxSource": "php/getForProcDVs.php",
-                    
-						
-                                    
-                        "sPaginationType": "full_numbers",
-                        "bJQueryUI": true,
-                        "bPaginate": true,
-                        "bLengthChange": true,
-                     
-                        "bSort": true,
-                        "bInfo": false,
-                        "bAutoWidth": false,
-                        
-
-                        "sScrollY": "200",
-                        
-                        "bScrollCollapse": true,						
-					
-						
-    
-                    }); //data tables   
-    
-                   var procTable = $('#encoded').dataTable( {
-				   
-                        "bProcessing": true,
-                        "bServerSide": true,
-                        "sAjaxSource": "php/getEncodedDVs.php",
-                    
-                        "bPaginate": true,         
-                        "sPaginationType": "full_numbers",
-                        "bJQueryUI": true,
-                        
-                        "bLengthChange": true,
-                        
-                       
-                       
-                        "bAutoWidth": false,
-                        
-                        "sScrollY": "200",
-                        
-                        "bScrollCollapse": true,						
-					
-						"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
-						}
-						
-					
-    
-                    }); //data tables
-                    
-
-	
-		
-		
-		
-		
-} );
-
-
-
-
+       
+	</script>
             
-                
             
-            </script>
+	<script>
             
-            
-            <script>
-            
-                 $(function() {
-				 
+		$(function() {
+					 
 			$( "#menu" ).menu();
-			
-				$('#tabs ul').show({
 				
-				
-		
-		
-		
-		});
-        $( "#tabs" ).tabs({
-		
-		
-			"show": function(event, ui, readyTable) {
+			$('#tabs ul').show({
 					
-			},
-		
+			});
+			
+			$( "#tabs" ).tabs({
+				"show": function(event, ui, readyTable) {
+						
+				},
+			});
 		
 		});
-			
-			
-			
-			
-  });
             
-            
-            
-            </script>
+	</script>
         
         
             
@@ -257,11 +298,12 @@
 		<div id='tabs'>
 		
 		<ul>
-			<li><a href="#tabs-1">Disbursement Vouchers</a></li>
-			<li><a href="#tabs-2">Processing</a></li>
-			<li><a href="#tabs-3">Returned</a></li>
-			<li><a href="#tabs-4">Released</a></li>
-			<li><a href="#tabs-5">Encode New Disbursement</a></li>
+			<li id='encoded-li'><a href="#tabs-1">Disbursement Vouchers</a></li>
+			<li id='forproc-li'><a href="#tabs-2">Processing</a></li>
+			<li id='return-li'><a href="#tabs-3">Returned</a></li>
+			<li id='release-li'><a href="#tabs-4">Released</a></li>
+			
+			<li ><a href="#tabs-5">Encode New Disbursement</a></li>
 			
 		</ul>
 		
