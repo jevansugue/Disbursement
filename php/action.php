@@ -1,5 +1,6 @@
 <?php
 	$action = $_POST['action'];
+	$tbl_name = "disbursement_tbl";
 	
 	$dvid = $_POST['dvid'];
 	$date_proc = $_POST['dateProc'];
@@ -7,23 +8,55 @@
 	$check_num = $_POST['cNum'];
 	$date_rec = $_POST['date_rec'];
 	
-	session_start();
-	
-	$_SESSION['dvid'] = $dvid;
-	$_SESSION['dateProc'] = $date_proc;
-	$_SESSION['netAmt'] = $net_amt;
-	$_SESSION['cNum'] = $check_num;
-	$_SESSION['date_rec'] = $date_rec;
-	
-	if( $action == 'confirm'){
-		header('Location: encode_red.php');
-	}
-	else if( $action == 'cancel'){
-		session_destroy();
+
+	function encode_red(){
+		$tat = floor((strtotime($_GLOBALS['date_proc']) - strtotime($_GLOBALS['date_rec']))/86400); //WALA PA HOLIDAYS	
+		
+		$q = "UPDATE `" . $GLOBALS['tbl_name'] . "` 
+			SET 
+				`date_proc`='" . $GLOBALS['date_proc'] . "', 
+				`n_amt`='" . $GLOBALS['net_amt'] . "', 
+				`check_num`='" . $GLOBALS['check_num'] . "',
+				`status`='FOR_PROCESS',
+				`tat`='" . $tat . "'
+			WHERE `dv_id`='" . $GLOBALS['dvid'] . "';";
+		
+		mysql_query($q) or die(mysql_error());
+		mysql_close();	
+
 		header('Location: ..');
 	}
+	
+	function return_dv(){
+		$changeStatusq = 
+			"UPDATE `" . $GLOBALS['tbl_name'] . "` 
+				SET 
+					`status`='RETURNED' 
+				WHERE `dv_id`='" . $GLOBALS['dvid'] . "';";
+				
+		$insertDateRetq = 
+			"INSERT INTO `trails_tbl` 
+				(`dv_id`,`return_date`) VALUES
+				('" . $GLOBALS['dvid'] . "', '" . $GLOBALS['date_rec'] . "');
+				";
+		
+		mysql_query($changeStatusq);
+		mysql_query($insertDateRetq);
+			
+		mysql_close();
+		header('Location: ..');
+	}
+	
+	if( $action == 'save'){
+		require 'connect.php';
+		encode_red();
+	}
+	else if( $action == 'return dv'){
+		require 'connect.php';
+		return_dv();
+	}
 	else{
-		header('Location: return_dv.php');
+		header('Location: ..');
 	}
 
 ?>
