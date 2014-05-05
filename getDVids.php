@@ -28,6 +28,7 @@
 				echo "<fieldset>
 					<legend> Disbursement Voucher : " . $dvid . "</legend>	
 						<input type='hidden' value='" . $dvid . "' name='dvid' />
+						<input type='hidden' value='" . $row['date_receive'] . "' name='date_rec' />
 						<br />
 						
 						<label><span class='form'> Date Process </span></label>

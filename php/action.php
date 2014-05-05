@@ -5,6 +5,7 @@
 	$date_proc = $_POST['dateProc'];
 	$net_amt = $_POST['netAmt'];
 	$check_num = $_POST['cNum'];
+	$date_rec = $_POST['date_rec'];
 	
 	session_start();
 	
@@ -12,6 +13,7 @@
 	$_SESSION['dateProc'] = $date_proc;
 	$_SESSION['netAmt'] = $net_amt;
 	$_SESSION['cNum'] = $check_num;
+	$_SESSION['date_rec'] = $date_rec;
 	
 	if( $action == 'confirm'){
 		header('Location: encode_red.php');
