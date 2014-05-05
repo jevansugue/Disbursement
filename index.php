@@ -167,6 +167,7 @@
                     
 
         $( "#tabs" ).tabs();
+		
 } );
 
 
@@ -180,7 +181,17 @@
             
             <script>
             
-                
+                 $(function() {
+				 
+			$( "#menu" ).menu({
+			
+			
+			
+			
+			
+			
+			});
+  });
             
             
             
@@ -194,6 +205,30 @@
     </head>
     
     <body>
+	
+	
+	<div id='navBarCon'>
+	
+		<div id='logoCon'>
+		
+		
+			</div>
+		<div id='menuCont'>
+		
+			<ul id='menu' >
+				
+
+				<li class='menuList'>  <a href='#' class='active'>   Home  </a> </li>
+				<li class='menuList'>  <a href='#' class='inActive' >  Reports  </a> </li>
+				<li class='menuList'>  <a href='#' class='inActive' >  Sign in </a> </li>
+				
+			</ul>
+			
+		</div>
+	</div>
+	
+	
+	
     <div class='tabContainer'>
 		<div id='tabs'>
 		
