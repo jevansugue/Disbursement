@@ -1,75 +1,123 @@
+<!DOCTYPE HTML>
+
 <html>
-<head>
-	<link rel='stylesheet' type='text/css' href='css/forms.css' />
-    <link rel='stylesheet' type='text/css' href='css/index.css' />
-	
-	<!-- CUSTOM JS -->
-	<script src='js/getAllDV.js'> </script>
-	<script src='js/generateLinks.js'> </script>
-	
-	<!-- JS PLUGINS -->
+
+    <head>
+    
+	<!-- CSS PLUGINS -->
+         
+	<link rel='stylesheet' type='text/css' href='css/maybank/jquery-ui-1.10.4.custom.css' />
+		
+		
+		<!-- 
+         <link rel='stylesheet' type='text/css' href='media/css/shCore.css' />
+         <link rel='stylesheet' type='text/css' href='media/css/shThemeDataTables.css' />
+		 <link rel='stylesheet' type='text/css' href='css/demo_page.css' />
+		 <link rel='stylesheet' type='text/css' href='css/demo_table.css' />
+		
+		-->
+    
+	<!-- END OF CSS PLUGINS -->
         
+    
+	<!-- JS PLUGINS -->
 	<script  src='js/jquery-1.11.0.min.js'> </script>
 	<script  src='js/jquery-ui-1.10.4.js'> </script>
 	<script  src='js/knockout-3.1.0.js'> </script>
 	<script src='js/knockout.simpleGrid.3.0.js'> </script>
+	<script src='js/jquery.dataTables.js'> </script>
 	<script src='media/js/shCore.js'> </script>
-	<script src='media/js/shBrushJscript.js'> </script>
-        
+	<script src='media/js/shBrushJscript.js'> </script>    
 	<!-- END OF  JS PLUGINS -->
-	
-	<!-- CSS PLUGINS -->
-         
-	<link rel='stylesheet' type='text/css' href='css/maybank/jquery-ui-1.10.4.custom.css' />
+        
+        
+	<!--  CUSTOM CSS -->
+	<link rel='stylesheet' type='text/css' href='css/forms.css' />
+	<link rel='stylesheet' type='text/css' href='css/index.css' />
+	<!-- END OF CUSTOM  CSS-->
+        
+      
+        
+	<!-- CUSTOM JS -->
        
-	<!-- END OF CSS PLUGINS -->
+	<script>
+                            
+		$(document).ready(function() {
 
-<?php
-
-    require 'php/connect.php';
-    
-    if(empty($_POST['dv_id']))
-		$dvid = ''; 
-	else 
-		$dvid=$_POST['dv_id'];
+			$( "#tabs" ).tabs();
+			
+		} );
+        
+	</script>
             
-    $q = 'SELECT *
-           FROM disbursement_tbl
-           WHERE dv_id = ' . $dvid;
-           
-           
-    $result=mysql_query($q) OR DIE(mysql_error());
-     
-    $row=mysql_fetch_array($result);
+            
+	<script>
+            
+		$(function() {
+			$( "#menu" ).menu({
+
+			});
+		});
+        
+	</script>
+        
+	<!-- END OF CUSTOM JS -->
+    
+	<!-- QUERY FOR FORM -->
+	<?php
+
+		require 'php/connect.php';
+		
+		if(empty($_POST['dv_id']))
+			$dvid = ''; 
+		else 
+			$dvid=$_POST['dv_id'];
+				
+		$q = 'SELECT *
+			   FROM disbursement_tbl
+			   WHERE dv_id = ' . $dvid;
+			   
+			   
+		$result=mysql_query($q) OR DIE(mysql_error());
+		 
+		$row=mysql_fetch_array($result);
 	?>
-</head>
-<body>
-	<!-- LAGYAN NG DIV DITO-->
+	
+    </head>
+    
+    <body>
+	
+	
 	<div id='navBarCon'>
 	
-		<div id='logoCon'>
 		
-		
-			</div>
 		<div id='menuCont'>
 		
 			<ul id='menu' >
 				
-
-				<li class='menuList'>  <a href='#' class='active'>   Home  </a> </li>
-				<li class='menuList'>  <a href='#' class='inActive' >  Reports  </a> </li>
-				<li class='menuList'>  <a href='#' class='inActive' >  Sign in </a> </li>
+				<div id='logoCon'>
+		
+					Disbursement System
 				
+				</div>
+
+				<li class='menuList'>  <a href='#' class='inActive' >  Sign in </a> </li>
+				<li class='menuList'>  <a href='#' class='inActive' >  Reports  </a> </li>
+				
+				<li class='menuList'>  <a href='#' class='active'>   Home  </a> </li>
+				
+			
 			</ul>
 			
 		</div>
 	</div>
-
+	
+	
+	
     <div class='tabContainer'>
 		<div id='tabs'>
 			<div id='tabs-1' class='tabContainer'>
-				<div class=''>
-					<form method='POST' action='php/action.php' id='encode'>
+				<form method='POST' action='php/action.php' id='encode'>
 						<?php
 							if(mysql_num_rows($result) > 0){
 								echo "
@@ -107,9 +155,11 @@
 							mysql_close();
 						?>
 					</form>
-				</div>
 			</div>
+		
 		</div>
-	</div>
-<body>
+		
+    </div>
+    </body>
+
 </html>
