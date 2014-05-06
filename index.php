@@ -241,6 +241,7 @@
 					//Button for functions
 					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
 							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
+							$('td:eq(2)', nRow).html("ASDAS");
 					}
 				});    
 			});
@@ -429,11 +430,8 @@
                             <thead>
                                 <tr>
                                     <th >Voucher id</th>
-                                    <th >Date Recieved</th>
-                                    <th >Payee</th>
-                                    <th >DV number</th>
-                                    <th >gross amount</th>
-                                    
+                                    <th >Date Recieved</th>                                                                  
+									<th >Dates Returned</th>      
                                 </tr>
                             </thead>
                             <tbody>
@@ -441,6 +439,13 @@
                                     <td colspan="5" class="dataTables_empty">Loading data from server</td>
                                 </tr>
                             </tbody>
+							<tfoot>
+                                <tr>
+                                    <th >Voucher id</th>
+                                    <th >Date Recieved</th>                                                             
+									<th >Dates Returned</th>      
+                                </tr>
+                            </tfoot>
                             
 						</table>
 					</form>
