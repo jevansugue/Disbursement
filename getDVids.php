@@ -77,7 +77,7 @@
 			   FROM disbursement_tbl
 			   WHERE dv_id = ' . $dvid;
 			   
-	echo $q
+	echo $q;
 			   
 		$result=mysql_query($q) OR DIE(mysql_error());
 		 
@@ -125,7 +125,8 @@
 								echo "
 									
 		<div id='labelResWrapper1'>
-		
+				<input type='hidden' value='" . $dvid . "' name='dvid' />
+				<input type='hidden' value='" . date('Y-m-d') . "' name='date_ret' />
 				<div id='labelArea'>
 				
 					<span class='label' > Disbursement ID</span>

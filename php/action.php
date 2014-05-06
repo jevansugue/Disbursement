@@ -7,6 +7,7 @@
 	$net_amt = $_POST['netAmt'];
 	$check_num = $_POST['cNum'];
 	$date_rec = $_POST['date_rec'];
+	$date_ret = $_POST['date_ret'];
 	
 
 	function encode_red(){
@@ -35,9 +36,9 @@
 	else if( $action == 'return dv'){
 		require 'returnDates_functions.php';
 		require 'connect.php';
-		//return_dv(tbl_name, dvid, date_rec, remarks) <-- function call parameter
+		//return_dv(tbl_name, dvid, date_ret, remarks) <-- function call parameter
 		$remarks = null; //TODO
-		return_dv($tbl_name, $dvid, $date_rec, $remarks);
+		return_dv($tbl_name, $dvid, $date_ret, $remarks);
 	}
 	else{
 		header('Location: ..');
