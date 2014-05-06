@@ -14,7 +14,7 @@ function return_dv($tbl_name, $dvid, $date_rec, $remarks){
 			('" . $dvid . "', '" . $date_rec . "', '" . $remarks . "');";
 	
 	mysql_query($changeStatusq) or die(mysql_error());
-	mysql_query($insertDateRetq or die(mysql_error()));
+	mysql_query($insertDateRetq) or die(mysql_error());
 		
 	mysql_close();
 	header('Location: ..');
