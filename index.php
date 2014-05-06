@@ -435,6 +435,7 @@
                                 <tr>
                                     <th >Voucher id</th>
                                     <th >Date Recieved</th>
+									<th >Payee</th>
                                     <th >Dates Returned</th>
                                     
                                 </tr>
@@ -449,6 +450,7 @@
                                     <th >Voucher id</th>
                                     <th >Date Recieved</th>
                                     <th >Dates Returned</th>
+									<th >Payee</th>
                                     
                                 </tr>
                             </tfoot>

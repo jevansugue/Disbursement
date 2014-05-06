@@ -17,7 +17,7 @@
 	//include 'connect.php';
 	require 'connect.php';
     
-    	$aColumns = array( 'dv_id', 'date_receive'); //TODO palitan dapat payee
+    	$aColumns = array( 'dv_id', 'date_receive', 'payee');
     
     
     
