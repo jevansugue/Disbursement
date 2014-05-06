@@ -6,7 +6,6 @@
     
      <link rel='stylesheet' type='text/css' href='css/index.css' />
 	 <link rel='stylesheet' type='text/css' href='css/forms.css' />
-    
         <!-- CSS PLUGINS -->
          
         <link rel='stylesheet' type='text/css' href='css/maybank/jquery-ui-1.10.4.custom.css' />
@@ -240,8 +239,15 @@
 					
 					//Button for functions
 					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
-							$('td:eq(2)', nRow).html("ASDAS");
+							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");															
+							$.ajax({
+								type: 'POST',
+								url: 'php/listReturnDates.php',
+								data: { 'dvid' : aData[0] },
+								success : function(data){
+									$('td:eq(2)', nRow).html(data);
+								}
+							}) ;
 					}
 				});    
 			});
@@ -307,8 +313,6 @@
     </head>
     
     <body>
-	
-	
 	<div id='navBarCon'>
 	
 		
