@@ -84,14 +84,10 @@
 					"bAutoWidth": true,
 					"bSortClasses": false,
 					"sScrollY": "200",							
-					"bScrollCollapse": true,
-
-					//Button for functions
-					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
-					}
+					"bScrollCollapse": true,						
 			}); 
 			
+			//DEBUG
 			 forprocTable = $('#forproc').dataTable( {					   
 					"bProcessing": true,
 					"bServerSide": true,
@@ -106,12 +102,7 @@
 					"bAutoWidth": true,
 					"bSortClasses": false,
 					"sScrollY": "200",							
-					"bScrollCollapse": true,
-					
-					//Button for functions
-					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
-					}
+					"bScrollCollapse": true,						
 				});
 
 				returnTable = $('#return').dataTable( {					   
@@ -128,12 +119,7 @@
 					"bAutoWidth": true,
 					"bSortClasses": false,
 					"sScrollY": "200",							
-					"bScrollCollapse": true,
-					
-					//Button for functions
-					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
-					}
+					"bScrollCollapse": true,						
 				});    
 				
 				releaseTable = $('#release').dataTable( {					   
@@ -150,12 +136,7 @@
 					"bAutoWidth": true,
 					"bSortClasses": false,
 					"sScrollY": "200",							
-					"bScrollCollapse": true,
-					
-					//Button for functions
-					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
-					}
+					"bScrollCollapse": true,						
 				});    
 			//END PRELOAD
 			
@@ -178,13 +159,7 @@
 					"bAutoWidth": true,
 					"bSortClasses": false,
 					"sScrollY": "200",							
-					"bScrollCollapse": true,	
-					
-					//Button for functions
-					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
-					}
-					
+					"bScrollCollapse": true,						
 				});    
 				
 			});
@@ -209,11 +184,6 @@
 					"bSortClasses": false,
 					"sScrollY": "200",							
 					"bScrollCollapse": true,						
-					
-					//Button for functions
-					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
-					}
 				});    
 			});
 			
@@ -237,11 +207,6 @@
 					"bSortClasses": false,
 					"sScrollY": "200",							
 					"bScrollCollapse": true,						
-					
-					//Button for functions
-					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
-					}
 				});    
 			});
 			
@@ -264,11 +229,6 @@
 					"bSortClasses": false,
 					"sScrollY": "200",							
 					"bScrollCollapse": true,						
-					
-					//Button for functions
-					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
-					}
 				});    
 			});
 						
@@ -338,7 +298,7 @@
 		<div id='tabs'>
 		
 		<ul>
-			<li id='encoded-li'><a href="#tabs-1">Disbursement Vouchers</a></li>
+			<li id='encoded-li'><a href="#tabs-1">Encoded</a></li>
 			<li id='forproc-li'><a href="#tabs-2">Processing</a></li>
 			<li id='return-li'><a href="#tabs-3">Returned</a></li>
 			<li id='release-li'><a href="#tabs-4">Released</a></li>
