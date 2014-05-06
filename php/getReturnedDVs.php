@@ -17,7 +17,7 @@
 	//include 'connect.php';
 	require 'connect.php';
     
-    	$aColumns = array( 'dv_id', 'date_receive',  'payee'); //TODO palitan dapat payee
+    	$aColumns = array( 'dv_id', 'date_receive'); //TODO palitan dapat payee
     
     
     
@@ -154,6 +154,9 @@
 		"aaData" => array()
 	);
 	
+	
+	require 'listReturnDates.php';
+	
 	while ( $aRow = mysql_fetch_array( $rResult ) )
 	{
         
@@ -176,7 +179,8 @@
 			}
             $row['DT_RowName'] = $aColumns[$i];
 		}
-		$output['aaData'][] = $row;
+		$row[] = getReturnDates_html($aRow[0]); // may bugs to ata [ETO YUN EXTRA COLUMN]
+		$output['aaData'][] = $row;		
 	}
 	
 	echo json_encode( $output );

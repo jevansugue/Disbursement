@@ -25,9 +25,9 @@ function getReturnDates_html($dvid){
 	
 	return $string;
 }
-
+/*
 $dvid = $_POST['dvid'];
 require 'connect.php';
 echo getReturnDates_html($dvid);
-
+*/
 ?>

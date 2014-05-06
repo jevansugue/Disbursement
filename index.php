@@ -237,7 +237,12 @@
 					"bSortClasses": false,
 					"sScrollY": "200",							
 					"bScrollCollapse": true,						
-					
+					//Extra column
+					"columnDefs": [ {
+						"targets": -1,
+						"data": null,
+						"defaultContent": "",
+					}],
 					//Button for functions
 					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
 							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
@@ -430,9 +435,7 @@
                                 <tr>
                                     <th >Voucher id</th>
                                     <th >Date Recieved</th>
-                                    <th >Payee</th>
-                                    <th >DV number</th>
-                                    <th >gross amount</th>
+                                    <th >Dates Returned</th>
                                     
                                 </tr>
                             </thead>
@@ -441,6 +444,14 @@
                                     <td colspan="5" class="dataTables_empty">Loading data from server</td>
                                 </tr>
                             </tbody>
+							<tfoot>
+                                <tr>
+                                    <th >Voucher id</th>
+                                    <th >Date Recieved</th>
+                                    <th >Dates Returned</th>
+                                    
+                                </tr>
+                            </tfoot>
                             
 						</table>
 					</form>
