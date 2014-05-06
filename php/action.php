@@ -27,33 +27,17 @@
 		header('Location: ..');
 	}
 	
-	function return_dv(){
-		$changeStatusq = 
-			"UPDATE `" . $GLOBALS['tbl_name'] . "` 
-				SET 
-					`status`='RETURNED' 
-				WHERE `dv_id`='" . $GLOBALS['dvid'] . "';";
-				
-		$insertDateRetq = 
-			"INSERT INTO `trails_tbl` 
-				(`dv_id`,`return_date`) VALUES
-				('" . $GLOBALS['dvid'] . "', '" . $GLOBALS['date_rec'] . "');
-				";
-		
-		mysql_query($changeStatusq);
-		mysql_query($insertDateRetq);
-			
-		mysql_close();
-		header('Location: ..');
-	}
 	
 	if( $action == 'save'){
 		require 'connect.php';
 		encode_red();
 	}
 	else if( $action == 'return dv'){
+		require 'returnDates_functions.php';
 		require 'connect.php';
-		return_dv();
+		//return_dv(tbl_name, dvid, date_rec, remarks) <-- function call parameter
+		$remarks = null; //TODO
+		return_dv($tbl_name, $dvid, $date_rec, $remarks);
 	}
 	else{
 		header('Location: ..');
