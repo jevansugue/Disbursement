@@ -7,7 +7,7 @@
 	$net_amt = $_POST['netAmt'];
 	$check_num = $_POST['cNum'];
 	$date_rec = $_POST['date_rec'];
-	$date_ret = $_POST['date_ret'];
+
 	
 
 	function encode_red(){
@@ -38,7 +38,7 @@
 		require 'connect.php';
 		//return_dv(tbl_name, dvid, date_ret, remarks) <-- function call parameter
 		$remarks = null; //TODO
-		return_dv($tbl_name, $dvid, $date_ret, $remarks);
+		return_dv($tbl_name, $dvid, $date_proc, $remarks);
 	}
 	else{
 		header('Location: ..');
