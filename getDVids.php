@@ -117,7 +117,7 @@
     <div class='tabContainer'>
 		<div id='tabs'>
 			<div id='tabs-1' class='tabContainer'>
-				<form method='POST' action='php/action.php' id='encode-red'>
+				<form method='POST' action='php/action.php' id='encode-red' name='getDVids'>
 						<?php
 							if(mysql_num_rows($result) > 0){
 							
@@ -173,7 +173,7 @@
 					<br />
 					<input type = 'text' name='cNum' class='res'/>
 					<br /><br />
-					<span class='res'>" . $row['dv_id'] ."</span>
+					<span class='res'>" . $row['dv_num'] ."</span>
 					<br /><br />
 				
 				</div>

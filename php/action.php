@@ -8,7 +8,14 @@
 	$check_num = $_POST['cNum'];
 	$date_rec = $_POST['date_rec'];
 	$date_ret = $_POST['date_ret'];
-
+	$subCat = $_POST['subCat'];
+	$mop = $_POST['mop'];
+	$orNum = $_POST['orNum'];
+	$tinNum = $_POST['tinNum'];
+	$nop = $_POST['nop'];
+	$remarks= $_POST['rem'];
+	
+	$emp_id='1'; //TODO
 	
 
 	function encode_red(){
@@ -29,10 +36,44 @@
 		header('Location: ..');
 	}
 	
+	function forRelease($subCat, $mop, $orNum, $tinNum, $nop, $emp_id, $date_proc, $remarks, $dvid){
+		
+		$q = "UPDATE `" . $GLOBALS['tbl_name'] . "`
+			 SET
+				`sub_cat` ='" . $subCat ."',
+				`mop` ='" . $mop ."',
+				`or_num` ='" . $orNum ."',
+				`tin_num` ='" . $tinNum ."',
+				`nat_of_pay` ='" . $nop ."'
+				
+			WHERE `dv_id`='" . $GLOBALS['dvid'] . "';";
+			
+		mysql_query($q) or die(mysql_error());
+			
+		$q= "INSERT INTO `trails_tbl`
+				 VALUES
+			('" . $emp_id . "', '" . $dvid . "', '" . $date_proc . "', '" . $remarks . "','RELEASED');";	
+				
+		
+		echo $q;
+		
+				
+			
+		mysql_query($q) or die(mysql_error());
+		
+		echo $q;
+		//mysql_close();	
+				
+		
 	
-	if( $action == 'save'){
+	
+	
+	}
+	
+	
+	if( $action == 'release'){
 		require 'connect.php';
-		encode_red();
+		forRelease($subCat, $mop, $orNum, $tinNum, $nop, $emp_id, $date_proc, $remarks, $dvid);
 	}
 	else if($action == 'accept'){
 		require 'connect.php';
@@ -66,7 +107,7 @@
 		return_dv($tbl_name, $dvid, $date_ret, $remarks, $emp_id);
 	}
 	else{
-		header('Location: ..');
+		//header('Location: ..');
 	}
 
 ?>

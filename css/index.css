@@ -331,8 +331,6 @@ input.res
 
 	text-align: center;
 	border: 1px solid black;
-	
-	
 	margin: 0 auto;
 	border-radius: .5em;
 	background-color: #feeebd;
@@ -351,6 +349,12 @@ input.res
 {
 	width: 50em;
 	
+
+}
+
+textarea.res{
+	position: relative;
+	margin-top: 2em;
 
 }
 

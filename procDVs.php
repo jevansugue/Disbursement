@@ -96,7 +96,7 @@
     <div class='tabContainer'>
 		<div id='tabs'>
 			<div id='tabs-1' class='tabContainer'>
-				<form method='POST' action='php/action.php' id='encode-red'>
+				<form method='POST' action='php/action.php' id='encode-red' name='forProcDVs'>
 <?php
 
 	require "php/connect.php";
@@ -124,7 +124,7 @@
 			
 				$dateRec = strtotime($row['date_receive']);
 				$dateProc = strtotime($row['date_proc']);
-				$TAT = $dateRec - $dateProc;
+				$TAT =$dateProc - $dateRec;
 				$TAT =floor($TAT / (60*60*24));
 				
 				if($TAT == 0)
@@ -156,6 +156,11 @@
 				<br />
 				<span class='label'> Voucher ID</span>
 				<br />
+				<span class='label'> Requesting Unit</span>
+				<br />
+				<span class='label'> Requesting Party</span>
+				<br />
+				<span class='label'> Category</span>
 			
 			</div>
 			
@@ -166,6 +171,7 @@
 			<div id='resArea'>
 			
 				<span class='res'> " . $row['dv_id'] ."</span>
+				<input type='hidden' value=" . $row['dv_id'] ." name='dvid' />
 				<br />
 				<span class='res'>" . $row['payee'] ."</span>
 				<br />
@@ -176,11 +182,17 @@
 				<span class='res'>" . $row['date_receive'] ."</span>
 				<br />
 				<span class='res'>" . $row['date_proc'] ."</span>
+				<input type='hidden' value=" . $row['date_proc'] ." name='dateProc' />
 				<br />
 				<span class='res'>" . $TAT ."</span>
 				<br />
 				<span class='res'>" . $row['dv_id'] ."</span>
 				<br />
+				<span class='res'>" . $row['req_unit'] ."</span>
+				<br />
+				<span class='res'>" . $row['req_party'] ."</span>
+				<br />
+				<span class='res'>" . $row['category'] ."</span>
 			
 			</div>
 		</div>
@@ -189,48 +201,48 @@
 		
 			<div id='labelArea2'>
 			
-			
-				<span class='label'> Requesting Unit</span>
-				<br />
-				<span class='label'> Requesting Party</span>
-				<br />
-				<span class='label'> Category</span>
-				<br />
-				<span class='label'> Sub Category</span>
-				<br />
-				<span class='label'> Mode of Payment</span>
-				<br />
+				<span class='label' > Sub Category</span>
+				<br /><br />
+				<span class='label' > Mode of Payment</span>
+				<br /><br />
 				
 				<span class='label'> O.R. Number</span>
-				<br />
+				<br /><br />
 				<span class='label'> TIN Number</span>
-				<br />
+				<br /><br />
 				
 				<span class='label'> Nature of Payment</span>
 				<br />
+				<br />
 				
+				<span class='label'> Remarks </span>
+				<br /> 
 		
 			</div>
 			
 			
 			<div id='resArea2'>
 			
-				<span class='res'>" . $row['req_unit'] ."</span>
-				<br />
-				<span class='res'>" . $row['req_party'] ."</span>
-				<br />
-				<span class='res'>" . $row['category'] ."</span>
-				<br />
-				<span class='res'>" . $row['sub_cat'] ."</span>
-				<br />
-				<span class='res'>" . $row['mop'] ."</span>
+
+				
+				<input type='text' class='res' name='subCat' />
+				<br /><br />
+				<input type='text' class='res'name='mop' />
+				<br /><br />
+				<input type='text' class='res' name='orNum' />
+				<br /><br />
+				<input type='text' class='res' name='tinNum'/>
+				<br /><br />
+				<input type='text' class='res' name='nop'/>
+				<br /><br />
+				
+				<textarea style='position: absolute' name='rem' form='encode-red'> </textarea>
 				<br />
 				
-				<span class='res'>" . $row['or_num'] ."</span>
-				<br />
-				<span class='res'>" . $row['tin_num'] ."</span>
-				<br />
-				<span class='res'>" . $row['nat_of_pay'] ."</span>
+				
+				
+				
+				
 			
 			
 			</div>
@@ -238,8 +250,8 @@
 			
 		
 		</div>
-			<div id='buttonsArea'>
-				<input type='submit' name='action' value='save' id='confirm'/>
+			<div id='buttonsArea' style='margin-top: 3.5em' >
+				<input type='submit' name='action' value='release' id='confirm'/>
 				<input type='submit' name='action' value='return dv' id='return'/>
 				<input type='submit' name='action' value='cancel' id='return'/>
 			</div>
