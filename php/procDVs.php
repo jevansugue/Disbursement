@@ -135,7 +135,7 @@
 				echo "
 					
 				
-									<div id='labelResWrapper1'>
+			<div id='labelResWrapper1'>
 		
 			<div id='labelArea'>
 			
@@ -234,14 +234,14 @@
 			
 			</div>
 			
+			
+		
+		</div>
 			<div id='buttonsArea'>
 				<input type='submit' name='action' value='save' id='confirm'/>
 				<input type='submit' name='action' value='return dv' id='return'/>
 				<input type='submit' name='action' value='cancel' id='return'/>
 			</div>
-		
-		</div>
-		
 								"; 
 			
 			
