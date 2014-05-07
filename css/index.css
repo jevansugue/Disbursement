@@ -313,20 +313,27 @@ input.res
 }
 
 
-#buttonsArea
+#buttonsArea, #submitArea
 {
-	
-	
-	width: 20em;
+	width: 10em;
 	text-align: center;
 	border: 1px solid black;
 	display: inline-block;
-	margin-top: 5em;
+	
 	float: right;
 	border-radius: .5em;
 	background-color: #feeebd;
 	
 }
+
+#buttonsArea
+{
+	margin-top: 5em;
+	width: 20em;
+
+}
+
+
 
 #encode-red
 {
