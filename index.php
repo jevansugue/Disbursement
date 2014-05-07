@@ -388,7 +388,7 @@
 			<div id='tabs-2' class='tabContainer'>
 			
 				<div class=''>
-                    <form method='POST' action='php/procDVs.php'>
+                    <form method='POST' action='procDVs.php'>
                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="forproc">
                             <thead>
                                 <tr>

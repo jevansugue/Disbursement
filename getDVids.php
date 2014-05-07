@@ -77,7 +77,6 @@
 			   FROM disbursement_tbl
 			   WHERE dv_id = ' . $dvid;
 			   
-	echo $q;
 			   
 		$result=mysql_query($q) OR DIE(mysql_error());
 		 

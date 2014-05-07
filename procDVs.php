@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
-
+,
 <html>
 
     <head>
     
 	<!-- CSS PLUGINS -->
          
-	<link rel='stylesheet' type='text/css' href='../css/maybank/jquery-ui-1.10.4.custom.css' />
+	<link rel='stylesheet' type='text/css' href='css/maybank/jquery-ui-1.10.4.custom.css' />
 		
 		
 		<!-- 
@@ -21,17 +21,17 @@
         
     
 	<!-- JS PLUGINS -->
-	<script  src='../js/jquery-1.11.0.min.js'> </script>
-	<script  src='../js/jquery-ui-1.10.4.js'> </script>
-	<script src='../js/jquery.dataTables.js'> </script>
-	<script src='../media/js/shCore.js'> </script>
-	<script src='../media/js/shBrushJscript.js'> </script>    
+	<script  src='js/jquery-1.11.0.min.js'> </script>
+	<script  src='js/jquery-ui-1.10.4.js'> </script>
+	<script src='js/jquery.dataTables.js'> </script>
+	<script src='media/js/shCore.js'> </script>
+	<script src='media/js/shBrushJscript.js'> </script>    
 	<!-- END OF  JS PLUGINS -->
         
         
 	<!--  CUSTOM CSS -->
-	<link rel='stylesheet' type='text/css' href='../css/forms.css' />
-	<link rel='stylesheet' type='text/css' href='../css/index.css' />
+	<link rel='stylesheet' type='text/css' href='css/forms.css' />
+	<link rel='stylesheet' type='text/css' href='css/index.css' />
 	<!-- END OF CUSTOM  CSS-->
         
       
@@ -100,7 +100,7 @@
 				<form method='POST' action='php/action.php' id='encode-red'>
 <?php
 
-	require "connect.php";
+	require "php/connect.php";
 	
 	$lnk= connect();
 	
@@ -138,6 +138,8 @@
 			<div id='labelResWrapper1'>
 		
 			<div id='labelArea'>
+				<input type='hidden' value='" . $dv_id . "' name='dvid' />
+				<input type='hidden' value='" . date('Y-m-d') . "' name='date_ret' />
 			
 				<span class='label' > Disbursement ID</span>
 				<br />
