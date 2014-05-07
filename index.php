@@ -431,8 +431,7 @@
                                     <th >Voucher id</th>
                                     <th >Date Recieved</th>
                                     <th >Payee</th>
-                                    <th >DV number</th>
-                                    <th >gross amount</th>
+                                    <th >Returned Dates</th>
                                     
                                 </tr>
                             </thead>
@@ -441,7 +440,15 @@
                                     <td colspan="5" class="dataTables_empty">Loading data from server</td>
                                 </tr>
                             </tbody>
-                            
+                            <tfoot>
+                                <tr>
+                                    <th >Voucher id</th>
+                                    <th >Date Recieved</th>
+                                    <th >Payee</th>
+                                    <th >Returned Dates</th>
+                                    
+                                </tr>
+                            </tfoot>
 						</table>
 					</form>
 				</div>
