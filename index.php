@@ -6,6 +6,7 @@
     
      <link rel='stylesheet' type='text/css' href='css/index.css' />
 	 <link rel='stylesheet' type='text/css' href='css/forms.css' />
+    
         <!-- CSS PLUGINS -->
          
         <link rel='stylesheet' type='text/css' href='css/maybank/jquery-ui-1.10.4.custom.css' />
@@ -113,7 +114,7 @@
 					}
 				});
 
-				returnTable = $('#return').dataTable( {					   
+				returnTable = $('#returned').dataTable( {					   
 					"bProcessing": true,
 					"bServerSide": true,
 					"sAjaxSource": "php/getReturnedDVs.php",
@@ -221,7 +222,7 @@
 					returnTable.dataTable().fnDestroy();
 				}
 				
-				 returnTable = $('#return').dataTable( {					   
+				 returnTable = $('#returned').dataTable( {					   
 					"bProcessing": true,
 					"bServerSide": true,
 					"sAjaxSource": "php/getReturnedDVs.php",
@@ -239,15 +240,7 @@
 					
 					//Button for functions
 					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
-							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");															
-							$.ajax({
-								type: 'POST',
-								url: 'php/listReturnDates.php',
-								data: { 'dvid' : aData[0] },
-								success : function(data){
-									$('td:eq(2)', nRow).html(data);
-								}
-							}) ;
+							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
 					}
 				});    
 			});
@@ -313,6 +306,8 @@
     </head>
     
     <body>
+	
+	
 	<div id='navBarCon'>
 	
 		
@@ -343,7 +338,7 @@
 		<div id='tabs'>
 		
 		<ul>
-			<li id='encoded-li'><a href="#tabs-1">Disbursement Vouchers</a></li>
+			<li id='encoded-li'><a href="#tabs-1">Encoded Vouchers</a></li>
 			<li id='forproc-li'><a href="#tabs-2">Processing</a></li>
 			<li id='return-li'><a href="#tabs-3">Returned</a></li>
 			<li id='release-li'><a href="#tabs-4">Released</a></li>
@@ -393,7 +388,7 @@
 			<div id='tabs-2' class='tabContainer'>
 			
 				<div class=''>
-                    <form method='POST' action='#process'>
+                    <form method='POST' action='php/procDVs.php'>
                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="forproc">
                             <thead>
                                 <tr>
@@ -430,12 +425,15 @@
 			
 				<div class=''>
 					<form method='POST' action='#returned'>
-                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="return">
+                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="returned">
                             <thead>
                                 <tr>
                                     <th >Voucher id</th>
-                                    <th >Date Recieved</th>                                                                  
-									<th >Dates Returned</th>      
+                                    <th >Date Recieved</th>
+                                    <th >Payee</th>
+                                    <th >DV number</th>
+                                    <th >gross amount</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -443,13 +441,6 @@
                                     <td colspan="5" class="dataTables_empty">Loading data from server</td>
                                 </tr>
                             </tbody>
-							<tfoot>
-                                <tr>
-                                    <th >Voucher id</th>
-                                    <th >Date Recieved</th>                                                             
-									<th >Dates Returned</th>      
-                                </tr>
-                            </tfoot>
                             
 						</table>
 					</form>

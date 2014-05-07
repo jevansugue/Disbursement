@@ -229,3 +229,87 @@ background-color: #fff3cb;
 }
 
 
+#labelResWrapper1
+{
+
+
+	float: left;
+}
+
+#labelResWrapper2
+{
+
+	display:inline-block;
+
+}
+
+
+
+#labelArea, #labelArea2,  #resArea, #resArea2
+{
+
+	display: inline-block;
+	font-family: Verdana, Geneva, sans-serif;
+	
+}
+
+#labelArea, #labelArea2
+{
+text-align: right;
+
+}
+
+
+
+
+
+
+#resArea, #resArea2
+{
+	
+	display: inline-block;
+	font-family: Verdana, Geneva, sans-serif;
+	
+	
+	
+}
+
+.label, .res
+{
+	display: inline-block;
+	padding: .25px .25em;
+
+}
+
+.res
+{
+	border: 1px solid black;
+	border-radius: .25em;
+
+}
+
+.label
+{
+
+
+text-align: right;
+border-radius: .25em;
+border: 1px solid yellow;
+
+
+
+
+}
+
+
+#buttonsArea
+{
+	
+	width: auto;
+	height: 10em;
+	text-align: right;
+
+}
+
+
+

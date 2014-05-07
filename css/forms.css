@@ -15,30 +15,28 @@
 	-webkit-border-radius: 1em;
 	border: 1px solid #000;
 	height: 21em;
-	width: 35em;
+	width: auto;
 	position: relative;
 	margin: 0 auto;
+	padding: .5em;
 }
 
-#submit
+#submit, #confirm, #return
 {
-	margin-left: 50%;
 	width: 5em;
+	margin-top: 1em;
+	
 }
 
 #confirm
 {
-	width: 5em;
+	clear:left;
 	float: left;
-	clear: left;
-	margin-left: 37%;
 }
 
 #return
 {
-	width: 5em;
-	float: left;
-	margin-left: 1em;
+
 }
 
 span.form
@@ -64,3 +62,4 @@ span.form
 	margin-left:auto;
 	margin-right:auto;
 }
+
