@@ -177,13 +177,15 @@
 					<br /><br />
 				
 				</div>
-		</div>
-		
-			<div id='buttonsArea'>
+				
+				<div id='buttonsArea' style='margin: -3em'>
 				<input type='submit' name='action' value='save' id='confirm'/>
 				<input type='submit' name='action' value='return dv' id='return'/>
 				<input type='submit' name='action' value='cancel' id='return'/>
 			</div>
+		</div>
+		
+			
 		
 								";
 							}
