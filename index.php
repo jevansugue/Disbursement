@@ -434,7 +434,7 @@
 			<div id='tabs-3' class='tabContainer'>
 			
 				<div class=''>
-					<form method='POST' action='#returned'>
+					<form method='POST' action='returnDVs.php'>
                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="returned">
                             <thead>
                                 <tr>

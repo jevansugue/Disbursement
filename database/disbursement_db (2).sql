@@ -110,6 +110,9 @@ CREATE TABLE IF NOT EXISTS `users_tbl` (
   PRIMARY KEY (`empID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `users_tbl` (`empID`, `username`, `password`, `deptartment`) VALUES
+('1', 'one', 'one', 'asd');
+
 --
 -- Constraints for dumped tables
 --

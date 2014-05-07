@@ -39,7 +39,8 @@
 		require 'connect.php';
 		//return_dv(tbl_name, dvid, date_ret, remarks) <-- function call parameter
 		$remarks = null; //TODO
-		return_dv($tbl_name, $dvid, $date_ret, $remarks);
+		$emp_id = 1; //TODO
+		return_dv($tbl_name, $dvid, $date_ret, $remarks, $emp_id);
 	}
 	else{
 		header('Location: ..');
