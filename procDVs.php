@@ -83,7 +83,7 @@
 				<li class='menuList'>  <a href='#' class='inActive' >  Sign in </a> </li>
 				<li class='menuList'>  <a href='#' class='inActive' >  Reports  </a> </li>
 				
-				<li class='menuList'>  <a href='#' class='active'>   Home  </a> </li>
+				<li class='menuList'>  <a href='index.php' class='active'>   Home  </a> </li>
 				
 			
 			</ul>
