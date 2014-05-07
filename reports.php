@@ -82,10 +82,32 @@
 	</script>
         
         
+		<script type="text/javascript">
+
+		function showDvCount(){
+			var myselect = document.getElementById("date_chosen");
+			var val = myselect.options[myselect.selectedIndex].value;
+			
+			var number = $.ajax({
+							  url:"php/numberofdvperday.php",
+							  type:"POST",
+							  async:false,
+							  data:{
+									date:val
+								},
+							  success:function(d){
+								document.getElementById("count").innerHTML = d;
+							  }
+							});
+		}
             
-        
+        </script>
         <!-- END OF CUSTOM JS -->
     
+	<!-- PHP LIBS -->
+	<?php require 'php/connect.php'; ?>
+	
+	<!-- END OF PHP LIBS -->
     </head>
     
     <body>
@@ -121,46 +143,57 @@
 		<div id='tabs'>
 		
 		<ul>
-			<li id='encoded-li'><a href="#tabs-1">TAT</a></li>
+			<li id='encoded-li'><a href="#tabs-1">TAT and Dv count</a></li>
 			<li id='forproc-li'><a href="#tabs-2">Requesting unit</a></li>
 			<li id='return-li'><a href="#tabs-3">categories</a></li>
-			<li id='release-li'><a href="#tabs-4">Dv count</a></li>
 			
 		</ul>
 		
 			<div id='tabs-1' class='tabContainer'>
 			
 				<div class=''>
-                    <form method='POST' action='getDVids.php'>
-                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="encoded">
-                            <thead>
-                                <tr>
-                                    <th class='cHeader' >Voucher id</th>
-                                    <th class='cHeader'>Date Recieved</th>
-                                    <th class='cHeader'>Payee</th>
-                                    <th class='cHeader'>DV number</th>
-                                    <th class='cHeader'>gross amount</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="5" class="dataTables_empty">Loading data from server</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th width="25%">Voucher id</th>
-                                    <th width="20%">Date Recieved</th>
-                                    <th width="25%">Payee</th>
-                                    <th width="15%">DV number</th>
-                                    <th width="15%">gross amount</th>
-                                    
-                                </tr>
-                            </tfoot>
-                    </table>
-                </form>
-
+                    <div id='labelArea'>					
+						<span class='label' > Total Average turn around time :</span>
+						<br />
+						<span class='label'> Monthly average turn around time :</span>
+						<br />
+						<span class='label'> Weekly Average turn around time :</span>
+						<br />
+						<span class='label'> 
+							number of dv received on 
+							<select name='date_chosen' id='date_chosen' onChange="showDvCount()"> 
+								<option value="" disabled selected style="display:none;"></option>
+								<?php
+									$q = "SELECT DISTINCT  `date_receive` FROM  `disbursement_tbl`";
+									
+									$res = mysql_query($q);
+									
+									while( $row = mysql_fetch_assoc($res) ){
+										echo "<option value='" . $row['date_receive'] . "'>" . $row['date_receive'] . "</option>";
+									}
+									
+								?>
+							</select>
+						</span>
+						<br />
+					</div>
+					
+					
+				
+					
+					
+					<div id='resArea'>
+					
+						<span class='res'> 134</span>
+						<br />
+						<span class='res'> 24 </span>
+						<br />
+						<span class='res'> 5</span> 
+						<br />
+						<span class='res' id="count"> 0</span> 
+						<br />
+						
+					</div>
 				</div>
 					
 			</div>
@@ -169,35 +202,23 @@
 			<div id='tabs-2' class='tabContainer'>
 			
 				<div class=''>
-                    <form method='POST' action='procDVs.php'>
-                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="forproc">
-                            <thead>
-                                <tr>
-                                    <th >Voucher id</th>
-                                    <th >Date Recieved</th>
-                                    <th >Payee</th>
-                                    <th >DV number</th>
-                                    <th >gross amount</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="5" class="dataTables_empty">Loading data from server</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th width="25%">Voucher id</th>
-                                    <th width="20%">Date Recieved</th>
-                                    <th width="25%">Payee</th>
-                                    <th width="15%">DV number</th>
-                                    <th width="15%">gross amount</th>
-                                    
-                                </tr>
-                            </tfoot>
-						</table>
-					</form>
+                    <span class='label'> 
+							reports on :
+							<select name='date_chosen' id='date_chosen' onChange="showDvCount()"> 
+								<option value="" disabled selected style="display:none;"></option>
+								<?php
+									
+									$q = "SELECT DISTINCT  `req_unit` FROM  `disbursement_tbl`"; //REQ UNIT BA OR PARTY?
+									
+									$res = mysql_query($q) or die(mysql_error());
+									
+									while( $row = mysql_fetch_assoc($res) ){
+										echo "<option value='" . $row['req_unit'] . "'>" . $row['req_unit'] . "</option>";
+									}
+									
+								?>
+							</select>
+						</span>
 
 				</div>
 			</div>
@@ -205,71 +226,10 @@
 			<div id='tabs-3' class='tabContainer'>
 			
 				<div class=''>
-					<form method='POST' action='#returned'>
-                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="returned">
-                            <thead>
-                                <tr>
-                                    <th >Voucher id</th>
-                                    <th >Date Recieved</th>
-                                    <th >Payee</th>
-                                    <th >Returned Dates</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="5" class="dataTables_empty">Loading data from server</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th >Voucher id</th>
-                                    <th >Date Recieved</th>
-                                    <th >Payee</th>
-                                    <th >Returned Dates</th>
-                                    
-                                </tr>
-                            </tfoot>
-						</table>
-					</form>
+					
 				</div>
 			</div>
 			
-			 <div id='tabs-4' class='tabContainer'>
-			
-				<div class=''>
-					<form method='POST' action='#released'>
-                       <table cellpadding="0" cellspacing="0" border="0" class="display" id="release">
-                            <thead>
-                                <tr>
-                                    <th >Voucher id</th>
-                                    <th >Date Recieved</th>
-                                    <th >Payee</th>
-                                    <th >DV number</th>
-                                    <th >gross amount</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="5" class="dataTables_empty">Loading data from server</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th width="25%">Voucher id</th>
-                                    <th width="20%">Date Recieved</th>
-                                    <th width="25%">Payee</th>
-                                    <th width="15%">DV number</th>
-                                    <th width="15%">gross amount</th>
-                                    
-                                </tr>
-                            </tfoot>
-						</table>
-					</form>
-				</div>
-			
-			</div>
 		
 		</div>
 		

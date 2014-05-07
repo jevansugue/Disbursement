@@ -1,5 +1,5 @@
 <?php
-	require 'php/connect.php';
+	require 'connect.php';
 
 	$date = $_POST['date'];;
 	$q = "SELECT COUNT(  `dv_num` ) 
