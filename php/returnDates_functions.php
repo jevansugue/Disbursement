@@ -1,6 +1,6 @@
 <?php 
 
-function return_dv($tbl_name, $dvid, $date_ret, $remarks){
+function return_dv($tbl_name, $dvid, $date_ret, $remarks, $empID){
 	
 	$changeStatusq = 
 		"UPDATE `" . $tbl_name . "` 
@@ -10,8 +10,8 @@ function return_dv($tbl_name, $dvid, $date_ret, $remarks){
 			
 	$insertDateRetq = 
 		"INSERT INTO `trails_tbl` 
-			(`dv_id`,`return_date`, `remarks`) VALUES
-			('" . $dvid . "', '" . $date_ret . "', '" . $remarks . "');";
+			(`dv_id`,`return_date`, `remarks`, `empID`) VALUES
+			('" . $dvid . "', '" . $date_ret . "', '" . $remarks . "','" . $empID . "');";
 	
 	mysql_query($changeStatusq) or die(mysql_error());
 	mysql_query($insertDateRetq) or die(mysql_error());
