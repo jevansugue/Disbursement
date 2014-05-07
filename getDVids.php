@@ -77,6 +77,7 @@
 			   FROM disbursement_tbl
 			   WHERE dv_id = ' . $dvid;
 			   
+	echo $q
 			   
 		$result=mysql_query($q) OR DIE(mysql_error());
 		 
@@ -120,40 +121,70 @@
 				<form method='POST' action='php/action.php' id='encode-red'>
 						<?php
 							if(mysql_num_rows($result) > 0){
+							
 								echo "
-									<fieldset>
-										<legend class='legend-form'> <b> Disbursement Voucher : </b>" . $dvid . "</legend>	
-										<br />
-										
-										<label><span class='form'> Payee :</span></label>
-										<span class='field'> " . $row['payee'] . " </span>
-										<label><span class='form'> Gross amount :</span></label>
-										<span class='field'> " . $row['g_amt'] . " </span>
-										<label><span class='form'> Date Recieved :</span></label>
-										<span class='field'> " . $row['date_receive'] . " </span>
-										<br/>
-										
-										<input type='hidden' value='" . $dvid . "' name='dvid' />
-										<input type='hidden' value='" . $row['date_receive'] . "' name='date_rec' />
-										<br />
-										
-										<label><span class='form'> Date Process </span></label>
-										<input type = 'date' class='field' name='dateProc' value='" . date('Y-m-d') . "'/>
-										<br />
-										
-										<label><span class='form'> Net Amount </span></label>
-										<input type = 'text' name='netAmt' class='field'/>
-										<br />
-
-										<label><span class='form'> Check number </span></label>
-										<input type = 'text' name='cNum' class='field'/>
-										<br />
-										
-										<input type='submit' name='action' value='save' id='confirm'/>
-										<input type='submit' name='action' value='return dv' id='return'/>
-										<input type='submit' name='action' value='cancel' id='return'/>
-									</fieldset>
 									
+		<div id='labelResWrapper1'>
+		
+				<div id='labelArea'>
+				
+					<span class='label' > Disbursement ID</span>
+					<br /><br />
+					<span class='label'> Payee</span>
+					<br /><br />
+					<span class='label'> Gross Amount (PHP)</span>
+					<br /><br />
+					<span class='label'> Net Amount (PHP)</span>
+					<br /><br />
+					<span class='label'> Date Received</span>
+					<br /><br />
+					<span class='label'> Date Processed</span>
+					<br /><br />
+					<span class='label'> Check Number: </span>
+					<br /><br />
+					<span class='label'> Voucher ID</span>
+					<br /><br />
+				
+				</div>
+			
+			
+		
+			
+			
+				<div id='resArea'>
+				
+					<span class='res'> " . $dvid."</span>
+					<br />
+					<br />
+					<span class='res'>" . $row['payee'] ."</span>
+					<br />
+					<br />
+					<span class='res'>" . $row['g_amt'] ."</span> <span class='res'> Gross Amount</span>
+					<br />
+					<br />
+					<input type = 'text' name='netAmt' class='res'/> <span class='res'> Net Amount</span>
+					<br />
+					<br />
+					<span class='res'>" . $row['date_receive'] ."</span>
+					<br />
+					<br />
+					<input type = 'date' class='res' name='dateProc' value='" . date('Y-m-d') . "'/>
+					<br />
+					<br />
+					<input type = 'text' name='cNum' class='res'/>
+					<br /><br />
+					<span class='res'>" . $row['dv_id'] ."</span>
+					<br /><br />
+				
+				</div>
+		</div>
+		
+			<div id='buttonsArea'>
+				<input type='submit' name='action' value='save' id='confirm'/>
+				<input type='submit' name='action' value='return dv' id='return'/>
+				<input type='submit' name='action' value='cancel' id='return'/>
+			</div>
+		
 								";
 							}
 							else{

@@ -25,13 +25,15 @@
 {
 	width: 5em;
 	margin-top: 1em;
+	margin: .5em;
+	
 	
 }
 
 #confirm
 {
 	clear:left;
-	float: left;
+	
 }
 
 #return
