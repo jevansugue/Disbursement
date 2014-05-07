@@ -34,6 +34,29 @@
 		require 'connect.php';
 		encode_red();
 	}
+	else if($action == 'accept'){
+		require 'connect.php';
+		
+		$remarks = null; //TODO
+		$emp_id = 1; //TODO
+		
+		$changeStatusq = 
+		"UPDATE `" . $tbl_name . "` 
+			SET 
+				`status`='ENCODED' 
+			WHERE `dv_id`='" . $dvid . "';";
+		$insertDateRetq = 
+		"INSERT INTO `trails_tbl` 
+			(`dv_id`,`return_date`, `remarks`, `empID`, `status`) VALUES
+			('" . $dvid . "', '" . $date_proc . "', '" . $remarks . "','" . $emp_id . "','ACCEPTED');";	
+		
+		mysql_query($changeStatusq) or die(mysql_error());
+		mysql_query($insertDateRetq) or die(mysql_error());
+			
+		mysql_close();
+		
+		header('Location: ..');
+	}
 	else if( $action == 'return dv'){
 		require 'returnDates_functions.php';
 		require 'connect.php';

@@ -54,14 +54,14 @@ CREATE TABLE IF NOT EXISTS `disbursement_tbl` (
 --
 
 INSERT INTO `disbursement_tbl` (`dv_id`, `date_receive`, `date_proc`, `tat`, `dv_num`, `payee`, `g_amt`, `req_unit`, `req_party`, `category`, `sub_cat`, `n_amt`, `mop`, `check_num`, `or_num`, `tax_req`, `tin_num`, `nat_of_pay`, `status`) VALUES
-('20140429001', '2014-04-29', '2014-05-07', '0', 1, 'Julia Valenzuela', 90000, '5', 'Juju', 'PAYMENT', '', 2000000, 'CTA', '2345678', NULL, NULL, NULL, NULL, 'FOR_PROCESS'),
-('20140429003', '2014-04-29', '2014-05-07', '0', 3, 'Pangatlo', 3333, '3', 'three', 'PAYMENT', '', 2345680, '', '3456789', NULL, NULL, NULL, NULL, 'FOR_PROCESS'),
+('20140429001', '2014-04-29', '2014-05-07', '0', 1, 'Julia Valenzuela', 90000, '5', 'Juju', 'PAYMENT', '', 2000000, 'CTA', '2345678', NULL, NULL, NULL, NULL, 'ENCODED'),
+('20140429003', '2014-04-29', '2014-05-07', '0', 3, 'Pangatlo', 3333, '3', 'three', 'PAYMENT', '', 2345680, '', '3456789', NULL, NULL, NULL, NULL, 'ENCODED'),
 ('20140429004', '2014-04-29', NULL, NULL, 4, 'pangapat', 4444, '4', 'apat', 'PAYMENT', '', 0, '', NULL, NULL, NULL, NULL, NULL, 'ENCODED'),
 ('20140429005', '2014-04-29', NULL, NULL, 5, 'panglima', 55555, '5', 'lima', 'PAYMENT', '', 0, 'MC', NULL, NULL, NULL, NULL, NULL, 'ENCODED'),
 ('20140429006', '2014-04-29', NULL, NULL, 6, 'pang anim', 6666, '666', 'six', 'PAYMENT', '', 0, '', NULL, NULL, NULL, NULL, NULL, 'ENCODED'),
 ('20140429007', '2014-04-29', NULL, NULL, 7, 'pang pito', 7777, '7', 'pito', 'PAYMENT', '', 0, '', NULL, NULL, NULL, NULL, NULL, 'ENCODED'),
 ('20140429008', '2014-04-29', NULL, NULL, 8, 'Jevan Strong', 1000000000, 'jevan', 'solo', 'LIQUID', '', 0, 'MC', NULL, NULL, NULL, NULL, NULL, 'ENCODED'),
-('20140429009', '2014-04-29', NULL, NULL, 9, 'Ish dominguez', 10000000, '3', '', 'PAYMENT', '', 0, 'MC', NULL, NULL, NULL, NULL, NULL, 'RETURNED'),
+('20140429009', '2014-04-29', NULL, NULL, 9, 'Ish dominguez', 10000000, '3', '', 'PAYMENT', '', 0, 'MC', NULL, NULL, NULL, NULL, NULL, 'ENCODED'),
 ('20140429010', '2014-04-29', NULL, NULL, 10, 'Barb King', 20000, 'clash', 'Lokko', 'PAYMENT', 'dark elixer', 0, 'MC', NULL, NULL, NULL, NULL, NULL, 'ENCODED'),
 ('20140429011', '2014-04-29', NULL, NULL, 11, 'John Robert De Leon', 10000, '2', 'John Robert De Leon', 'REIMBURSE', '', 0, 'CTA', NULL, NULL, NULL, NULL, NULL, 'ENCODED'),
 ('20140429012', '2014-04-29', NULL, NULL, 12, 'Aileen Sabellon', 13000, '4', 'Aileen Sabellon', 'LIQUID', '', 0, '', NULL, NULL, NULL, NULL, NULL, 'ENCODED'),
