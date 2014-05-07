@@ -130,6 +130,11 @@
 					"sScrollY": "200",							
 					"bScrollCollapse": true,
 					
+					"aoColumnDefs" : [{
+						"bSortable": false,
+						"aTargets": [3]
+					}],
+					
 					//Button for functions
 					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
 							$('td:eq(0)', nRow).html("<input type='submit' value='" + aData[0] +"' name='dv_id' class='submitDvId'>");
@@ -237,6 +242,11 @@
 					"bSortClasses": false,
 					"sScrollY": "200",							
 					"bScrollCollapse": true,						
+					
+					"aoColumnDefs" : [{
+						"bSortable": false,
+						"aTargets": [3]
+					}],
 					
 					//Button for functions
 					"fnCreatedRow": function( nRow, aData, iDataIndex ) {
