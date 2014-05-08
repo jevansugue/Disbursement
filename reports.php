@@ -155,9 +155,13 @@
                     <div id='labelArea'>					
 						<span class='label' > Total Average turn around time :</span>
 						<br />
-						<span class='label'> Monthly average turn around time :</span>
+						<span class='label' > Monthly Average turn around time :</span>
 						<br />
-						<span class='label'> Weekly Average turn around time :</span>
+						<span class='label' > weekly Average turn around time :</span>
+						<br />
+						<span class='label'> Monthly Average recieved dv :</span>
+						<br />
+						<span class='label'> Weekly Average recieved dv :</span>
 						<br />
 						<span class='label'> 
 							number of dv received on 
@@ -183,12 +187,41 @@
 					
 					
 					<div id='resArea'>
+						<span class='res'> 
+							0
+						</span>
+						<br />
+						<span class='res'> 
+						<?php
+							$q = "SELECT AVG(a.totalTat/a.count) as avg
+								FROM (SELECT COUNT( * ) AS count, MONTH( date_receive ) AS mnth, SUM( tat ) AS totalTat
+									FROM disbursement_tbl
+									GROUP BY mnth
+								) AS a";
+							$res = mysql_fetch_array(mysql_query($q));
+							echo $res['avg'];
+						?>
+							
+
+						</span>
+						<br />
 					
-						<span class='res'> 134</span>
+						<span class='res'> 
+							0
+						</span>
 						<br />
-						<span class='res'> 24 </span>
+						<span class='res'> 
+						<?php
+								$q = "SELECT AVG(a.count) AS avg 
+									FROM ( SELECT count(*) AS count, MONTH(date_receive) as mnth
+										   FROM disbursement_tbl
+										   GROUP BY mnth) AS a";
+								$res = mysql_fetch_array(mysql_query($q));
+								echo $res['avg'];
+						?>
+						</span>
 						<br />
-						<span class='res'> 5</span> 
+						<span class='res'> 0</span> 
 						<br />
 						<span class='res' id="count"> 0</span> 
 						<br />
