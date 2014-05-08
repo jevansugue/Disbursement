@@ -157,10 +157,8 @@
 				<span class='label'> Voucher ID</span>
 				<br /><br />
 				<span class='label'> Requesting Unit</span>
-				<br /><br />
-				<span class='label'> Requesting Party</span>
-				<br /><br />
-				<span class='label'> Category</span>
+
+				
 			
 			</div>
 			
@@ -189,10 +187,6 @@
 				<span class='res'>" . $row['dv_id'] ."</span>
 				<br /><br />
 				<span class='res'>" . $row['req_unit'] ."</span>
-				<br /><br />
-				<span class='res'>" . $row['req_party'] ."</span>
-				<br /><br />
-				<span class='res'>" . $row['category'] ."</span>
 			
 			</div>
 		</div>
@@ -200,31 +194,33 @@
 		<div id='labelResWrapper2'>
 		
 			<div id='labelArea2'>
-			
-				<span class='label' > Sub Category</span>
+				<span class='label'> Requesting Party</span>
 				<br /><br />
-				<span class='label' > Mode of Payment</span>
+				<span class='label'> Category</span>
 				<br /><br />
-				
+				<span class='label'> Requesting Party</span>
+				<br /><br />
+				<span class='label'> Category</span>
+				<br /><br />
 				<span class='label'> O.R. Number</span>
 				<br /><br />
 				<span class='label'> TIN Number</span>
 				<br /><br />
 				
 				<span class='label'> Nature of Payment</span>
-				<br />
-				<br />
+				<br />	<br />
 				
 				<span class='label'> Remarks </span>
-				<br /> 
+				
 		
 			</div>
 			
 			
 			<div id='resArea2'>
-			
-
-				
+				<span class='res'>" . $row['req_party'] ."</span>
+				<br /><br />
+				<span class='res'>" . $row['category'] ."</span>
+				<br /><br />
 				<input type='text' class='res' name='subCat' />
 				<br /><br />
 				<input type='text' class='res'name='mop' />
