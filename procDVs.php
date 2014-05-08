@@ -141,25 +141,25 @@
 				<input type='hidden' value='" . date('Y-m-d') . "' name='date_ret' />
 			
 				<span class='label' > Disbursement ID</span>
-				<br />
+				<br /><br />
 				<span class='label'> Payee</span>
-				<br />
+				<br /><br />
 				<span class='label'> Gross Amount (PHP)</span>
-				<br />
+				<br /><br />
 				<span class='label'> Net Amount (PHP)</span>
-				<br />
+				<br /><br />
 				<span class='label'> Date Received</span>
-				<br />
+				<br /><br />
 				<span class='label'> Date Processed</span>
-				<br />
+				<br /><br />
 				<span class='label'> T.A.T</span>
-				<br />
+				<br /><br />
 				<span class='label'> Voucher ID</span>
-				<br />
+				<br /><br />
 				<span class='label'> Requesting Unit</span>
-				<br />
+				<br /><br />
 				<span class='label'> Requesting Party</span>
-				<br />
+				<br /><br />
 				<span class='label'> Category</span>
 			
 			</div>
@@ -172,26 +172,26 @@
 			
 				<span class='res'> " . $row['dv_id'] ."</span>
 				<input type='hidden' value=" . $row['dv_id'] ." name='dvid' />
-				<br />
+				<br /><br />
 				<span class='res'>" . $row['payee'] ."</span>
-				<br />
+				<br /><br />
 				<span class='res'>" . $row['g_amt'] ."</span> <span class='res'> Gross Amount</span>
-				<br />
+				<br /><br />
 				<span class='res'>" . $row['n_amt'] ."</span> <span class='res'> Net Amount</span>
-				<br />
+				<br /><br />
 				<span class='res'>" . $row['date_receive'] ."</span>
-				<br />
+				<br /><br />
 				<span class='res'>" . $row['date_proc'] ."</span>
 				<input type='hidden' value=" . $row['date_proc'] ." name='dateProc' />
-				<br />
+				<br /><br />
 				<span class='res'>" . $TAT ."</span>
-				<br />
+				<br /><br />
 				<span class='res'>" . $row['dv_id'] ."</span>
-				<br />
+				<br /><br />
 				<span class='res'>" . $row['req_unit'] ."</span>
-				<br />
+				<br /><br />
 				<span class='res'>" . $row['req_party'] ."</span>
-				<br />
+				<br /><br />
 				<span class='res'>" . $row['category'] ."</span>
 			
 			</div>

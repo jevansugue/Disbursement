@@ -188,26 +188,37 @@
 					
 					<div id='resArea'>
 						<span class='res'> 
-							0
+							<?php
+								$q = "SELECT AVG(  `tat` ) AS avg FROM  `disbursement_tbl`";
+								
+								$res = mysql_fetch_array(mysql_query($q));
+								echo $res['avg']; //displays only the average of dv's with existing turnaround times
+							?>
 						</span>
 						<br />
 						<span class='res'> 
-						<?php
-							$q = "SELECT AVG(a.totalTat/a.count) as avg
-								FROM (SELECT COUNT( * ) AS count, MONTH( date_receive ) AS mnth, SUM( tat ) AS totalTat
-									FROM disbursement_tbl
-									GROUP BY mnth
-								) AS a";
-							$res = mysql_fetch_array(mysql_query($q));
-							echo $res['avg'];
-						?>
+							<?php
+								$q = "SELECT AVG(a.totalTat/a.count) as avg
+									FROM (SELECT COUNT( * ) AS count, MONTH( date_receive ) AS mnth, SUM( tat ) AS totalTat
+										FROM disbursement_tbl
+										GROUP BY mnth
+									) AS a";
+								$res = mysql_fetch_array(mysql_query($q));
+								echo $res['avg'];
+							?>
 							
 
 						</span>
 						<br />
 					
 						<span class='res'> 
-							0
+							<?php
+								$q = "";
+								//$res = mysql_fetch_array(mysql_query($q));
+								//echo $res['avg'];
+							?>
+							wala p
+
 						</span>
 						<br />
 						<span class='res'> 
@@ -221,7 +232,7 @@
 						?>
 						</span>
 						<br />
-						<span class='res'> 0</span> 
+						<span class='res'> wala pa</span> 
 						<br />
 						<span class='res' id="count"> 0</span> 
 						<br />
@@ -259,7 +270,22 @@
 			<div id='tabs-3' class='tabContainer'>
 			
 				<div class=''>
-					
+					<span class='label'> 
+						Categories
+						<select>
+						<?php
+										
+							$q = "SELECT DISTINCT  `category` FROM  `disbursement_tbl`"; //REQ UNIT BA OR PARTY?
+							
+							$res = mysql_query($q) or die(mysql_error());
+									
+							while( $row = mysql_fetch_assoc($res) ){
+								echo "<option value='" . $row['category'] . "'>" . $row['category'] . "</option>";
+							}
+										
+						?>
+						</select>
+					</span>
 				</div>
 			</div>
 			

@@ -144,6 +144,10 @@
 					<br /><br />
 					<span class='label'> Voucher ID</span>
 					<br /><br />
+					<span class='label' > Sub Category</span>
+					<br /><br />
+					<span class='label' > Mode of Payment</span>
+					<br /><br />
 				
 				</div>
 			
@@ -175,7 +179,10 @@
 					<br /><br />
 					<span class='res'>" . $row['dv_num'] ."</span>
 					<br /><br />
-				
+					<input type='text' class='res' name='subCat' />
+					<br /><br />
+					<input type='text' class='res'name='mop' />
+					<br /><br />
 				</div>
 				
 				<div id='buttonsArea' style='margin: -3em'>
