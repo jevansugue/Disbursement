@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `trails_tbl` (
   `dv_id` varchar(255) NOT NULL,
   `return_date` date DEFAULT NULL,
   `remarks` varchar(255) DEFAULT NULL,
-  `status` enum('REVIEW','PROCESSING','RETURNED') DEFAULT NULL,
+  `status` enum('REVIEW','PROCESSING','RETURNED','RELEASE') DEFAULT NULL,
   KEY `dv_id` (`dv_id`),
   KEY `empID_fk` (`empID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

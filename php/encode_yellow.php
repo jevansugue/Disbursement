@@ -5,7 +5,7 @@ require 'connect.php';
 function myTrim($str, $splitter){ //single characters only
 	$len = strlen($str);
 	$arr_str = array();
-	$new_str = null;
+	//$new_str = null;
 	
 	for($c=0, $c2=0; $c<$len; $c++){
 		if( $str[$c] != "-"){
@@ -66,12 +66,14 @@ function getNextDv($date_rec){
 	
 	$dv_id = myTrim($date_rec, "-") . $DVNUM;
 	
+	$empID = '1'; // TO DO!!!
+	
 		
 	if( isset($_POST['mode']) && isset($_POST['subcat']) ){
 		$mode = $_POST['mode'];
 		$subcat = $_POST['subcat'];
 		$q = "INSERT INTO `disbursement_tbl`" .
-		"(`dv_id`, `dv_num`,`date_receive`, `payee`, `category`, `g_amt`, `req_unit`, `req_party`, `status`, `mop`, `sub_cat`) VALUES (" . 
+		"(`dv_id`, `dv_num`,`date_receive`, `payee`, `category`, `g_amt`, `req_unit`, `req_party`, `mop`, `sub_cat`) VALUES (" . 
 		"'" . $dv_id . "', " . 
 		"'" . $DVNUM . "', " . 
 		"'" . $date_rec . "', " . 
@@ -80,7 +82,6 @@ function getNextDv($date_rec){
 		"'" . $g_amt . "', " . 
 		"'" . $req_unit . "', " . 
 		"'" . $req_party . "', " . 
-		"'" . $status . "', "	.
 		"'" . $mode . "', " .
 		"'" . $subcat . "'"	
 		. ");";
@@ -88,7 +89,7 @@ function getNextDv($date_rec){
 	else if( isset($_POST['mode']) ){
 		$mode = $_POST['mode'];
 		$q = "INSERT INTO `disbursement_tbl`" .
-		"(`dv_id`, `dv_num`,`date_receive`, `payee`, `category`, `g_amt`, `req_unit`, `req_party`, `status`,`mop`) VALUES (" . 
+		"(`dv_id`, `dv_num`,`date_receive`, `payee`, `category`, `g_amt`, `req_unit`, `req_party`,`mop`) VALUES (" . 
 		"'" . $dv_id . "', " . 
 		"'" . $DVNUM . "', " . 
 		"'" .  $date_rec . "', " . 
@@ -97,7 +98,6 @@ function getNextDv($date_rec){
 		"'" . $g_amt . "', " . 
 		"'" . $req_unit . "', " . 
 		"'" . $req_party . "', " . 
-		"'" . $status . "', "	.
 		"'" . $mode . "'"	
 		. ");";
 	}
@@ -105,7 +105,7 @@ function getNextDv($date_rec){
 		$subcat = $_POST['subcat'];
 		$q = "INSERT INTO `disbursement_tbl`" .
 		$q = "INSERT INTO `disbursement_tbl`" .
-		"(`dv_id`, `dv_num`,`date_receive`, `payee`, `category`, `g_amt`, `req_unit`, `req_party`, `status`, `sub_cat`) VALUES (" . 
+		"(`dv_id`, `dv_num`,`date_receive`, `payee`, `category`, `g_amt`, `req_unit`, `req_party`, `sub_cat`) VALUES (" . 
 		"'" . $dv_id . "', " . 
 		"'" . $DVNUM . "', " . 
 		"'" . $date_rec . "', " . 
@@ -120,7 +120,7 @@ function getNextDv($date_rec){
 	}
 	else{
 		$q = "INSERT INTO `disbursement_tbl`" .
-		"(`dv_id`, `dv_num`,`date_receive`, `payee`, `category`, `g_amt`, `req_unit`, `req_party`, `status`) VALUES (" . 
+		"(`dv_id`, `dv_num`,`date_receive`, `payee`, `category`, `g_amt`, `req_unit`, `req_party`) VALUES (" . 
 		"'" . $dv_id . "', " . 
 		"'" . $DVNUM . "', " . 
 		"'" . $date_rec . "', " . 
@@ -128,14 +128,26 @@ function getNextDv($date_rec){
 		"'" . $cat . "', " . 
 		"'" . $g_amt . "', " . 
 		"'" . $req_unit . "', " . 
-		"'" . $req_party . "', " . 
-		"'" . $status . "'"	
-		. ");";
+		"'" . $req_party .");";
 	}
+	
+	$insertTrail="INSERT INTO `trails_tbl`
+		(`empID`, `dv_id`, `date`, `remarks`, `status`)VALUES (" . 
+		"'" . $empID . "', " . 
+		"'" . $dv_id . "', " . 
+		"'" . $date_rec. "', " . 
+		"'" . 'ENCODE YELLOW' . "', " . 
+		"'" . 'REVIEW'."');";
+		
+		echo $insertTrail . 'TRAILS QUERY <br /><br />' ;
+		echo $q . 'Insert Yellow QUERY <br /><br />';
+	
 	
 	$link = connect();
 	
-	mysql_query($q) or die(mysql_error());
+	mysql_query($q) or die(mysql_error(). "insert yellow DIED HERE <br />");
+	mysql_query($insertTrail) or die(mysql_error() . "trails DIED HERE <br />");
+	
 	
 	mysql_close($link);
 	

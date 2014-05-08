@@ -10,7 +10,7 @@ function return_dv($tbl_name, $dvid, $date_ret, $remarks, $empID){
 			
 	$insertDateRetq = 
 		"INSERT INTO `trails_tbl` 
-			(`dv_id`,`return_date`, `remarks`, `empID`, `status`) VALUES
+			(`dv_id`,`date`, `remarks`, `empID`, `status`) VALUES
 			('" . $dvid . "', '" . $date_ret . "', '" . $remarks . "','" . $empID . "','RETURNED');";
 	
 	mysql_query($changeStatusq) or die(mysql_error());

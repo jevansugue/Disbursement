@@ -1,13 +1,13 @@
 <?php
 function getReturnDates($dvid){
 	$dates = array();
-	$q = "SELECT `dv_id`, `return_date` FROM `trails_tbl` WHERE `dv_id` = '" . $dvid . "' ORDER BY `return_date` DESC";
+	$q = "SELECT `dv_id`, `date` FROM `trails_tbl` WHERE `dv_id` = '" . $dvid . "' ORDER BY `date` DESC";
 	//$q = "SELECT * FROM `trails_tbl` WHERE `dv_id` = '20140429001'";
 	
 	$res =  mysql_query($q) or die(mysql_error());
 	
 	while($row = mysql_fetch_assoc($res)){
-		$dates[] = $row['return_date'];
+		$dates[] = $row['date'];
 	}
 	
 	return $dates;

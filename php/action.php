@@ -18,7 +18,7 @@
 	$emp_id='1'; //TODO
 	
 
-	function encode_red(){
+	function encode_red($dvid,$emp_id, $date_proc, $check_num){
 		$tat = floor((strtotime($_GLOBALS['date_proc']) - strtotime($_GLOBALS['date_rec']))/86400); //WALA PA HOLIDAYS	
 		
 		$q = "UPDATE `" . $GLOBALS['tbl_name'] . "` 
@@ -31,9 +31,20 @@
 			WHERE `dv_id`='" . $GLOBALS['dvid'] . "';";
 		
 		mysql_query($q) or die(mysql_error());
+		
+				
+			$q = 
+		"INSERT INTO `trails_tbl` 
+			(`dv_id`,`date`, `remarks`, `empID`, `status`) VALUES
+			('" . $dvid . "', '" . $date_proc . "', '" . 'Done Encoding Red' . "','" . $emp_id . "','PROCESSS');";	
+		
+mysql_query($q) or die(mysql_error());
+
+
+
 		mysql_close();	
 
-		header('Location: ..');
+		//header('Location: ..');
 	}
 	
 	function forRelease($subCat, $mop, $orNum, $tinNum, $nop, $emp_id, $date_proc, $remarks, $dvid){
@@ -44,18 +55,23 @@
 				`mop` ='" . $mop ."',
 				`or_num` ='" . $orNum ."',
 				`tin_num` ='" . $tinNum ."',
-				`nat_of_pay` ='" . $nop ."'
+				`nat_of_pay` ='" . $nop ."',
+				`status` ='RELEASE'
 				
-			WHERE `dv_id`='" . $GLOBALS['dvid'] . "';";
-			
+			WHERE `dv_id`=" . $GLOBALS['dvid'];
+			echo $q;
 		mysql_query($q) or die(mysql_error());
-			
-		$q= "INSERT INTO `trails_tbl`
-				 VALUES
-			('" . $emp_id . "', '" . $dvid . "', '" . $date_proc . "', '" . $remarks . "','RELEASED');";	
-				
 		
 		echo $q;
+		
+
+			
+		$q= "INSERT INTO `trails_tbl` (`empID`, `dv_id`,`date`, `remarks`,`status`)
+				 VALUES
+			('".$emp_id."','".$dvid."', '".$date_proc."', '".$remarks."','RELEASE');";	
+		
+		
+		
 		
 				
 			
@@ -75,17 +91,21 @@
 		require 'connect.php';
 		forRelease($subCat, $mop, $orNum, $tinNum, $nop, $emp_id, $date_proc, $remarks, $dvid);
 	}
-	else if($action == 'accept'){
+	else if($action == 'Process'){
 		require 'connect.php';
 		
+		encode_red($dvid,$emp_id, $date_proc, $check_num);
+		/*
 		$remarks = null; //TODO
 		$emp_id = 1; //TODO
 		
 		$changeStatusq = 
 		"UPDATE `" . $tbl_name . "` 
 			SET 
-				`status`='ENCODED' 
+				`status`='FOR_PROCESS' `date_proc` = ' 
 			WHERE `dv_id`='" . $dvid . "';";
+			
+			echo $changeStatusq;
 		$insertDateRetq = 
 		"INSERT INTO `trails_tbl` 
 			(`dv_id`,`return_date`, `remarks`, `empID`, `status`) VALUES
@@ -95,8 +115,8 @@
 		mysql_query($insertDateRetq) or die(mysql_error());
 			
 		mysql_close();
-		
-		header('Location: ..');
+		*/
+		//header('Location: ..');
 	}
 	else if( $action == 'return dv'){
 		require 'returnDates_functions.php';
