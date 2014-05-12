@@ -39,9 +39,7 @@ CREATE TABLE IF NOT EXISTS `disbursement_tbl` (
   `category` varchar(255) DEFAULT NULL,
   `sub_cat` varchar(255) DEFAULT NULL,
   `n_amt` float NOT NULL,
-  `mop` varchar(255) NOT NULL,
-  `check_num` varchar(255) DEFAULT NULL,
-  `or_num` varchar(255) DEFAULT NULL,
+  `mop` enum('MC', 'CTA') NOT NULL,
   `tax_req` varchar(255) DEFAULT NULL,
   `tin_num` varchar(255) DEFAULT NULL,
   `nat_of_pay` varchar(255) DEFAULT NULL,
@@ -80,7 +78,34 @@ CREATE TABLE IF NOT EXISTS `users_tbl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `users_tbl` (`empID`, `username`, `password`, `deptartment`) VALUES
-('1', 'one', 'one', 'asd');
+('accounting-person', 'acct-person', 'password', 'accounting'),
+('accounting-supervisor', 'acct-super', 'password', 'accounting'),
+('administrator', 'admin', 'password', 'IT');
+
+
+--
+-- Table structure for table `checks_tbl`
+--
+
+CREATE TABLE IF NOT EXISTS `checks_tbl` (
+  `check_num` varchar(255) NOT NULL,
+  `dv_id` varchar(255) NOT NULL,
+  KEY `dv_id` (`dv_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `OR_tbl`
+--
+
+CREATE TABLE IF NOT EXISTS `OR_tbl` (
+  `OR_num` varchar(255) NOT NULL,
+  `dv_id` varchar(255) NOT NULL,
+  KEY `dv_id` (`dv_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
 -- Constraints for dumped tables
@@ -90,8 +115,20 @@ INSERT INTO `users_tbl` (`empID`, `username`, `password`, `deptartment`) VALUES
 -- Constraints for table `trails_tbl`
 --
 ALTER TABLE `trails_tbl`
-  ADD CONSTRAINT `empID_fk` FOREIGN KEY (`empID`) REFERENCES `users_tbl` (`empID`),
-  ADD CONSTRAINT `dv_id_fk` FOREIGN KEY (`dv_id`) REFERENCES `disbursement_tbl` (`dv_id`);
+  ADD CONSTRAINT `empID_trails_fk` FOREIGN KEY (`empID`) REFERENCES `users_tbl` (`empID`),
+  ADD CONSTRAINT `dv_id_trails_fk` FOREIGN KEY (`dv_id`) REFERENCES `disbursement_tbl` (`dv_id`);
+  
+--
+-- Constraints for table `OR_tbl`
+--
+ALTER TABLE `OR_tbl`
+  ADD CONSTRAINT `dv_id_OR_fk` FOREIGN KEY (`dv_id`) REFERENCES `disbursement_tbl` (`dv_id`);
+  
+--
+-- Constraints for table `checks_tbl`
+--
+ALTER TABLE `checks_tbl`
+  ADD CONSTRAINT `dv_id_checks_fk` FOREIGN KEY (`dv_id`) REFERENCES `disbursement_tbl` (`dv_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
