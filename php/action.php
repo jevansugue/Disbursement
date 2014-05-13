@@ -17,6 +17,8 @@
 	
 	$emp_id='1'; //TODO
 	
+	$today = date('Y-M-D');
+	
 
 	function encode_red($dvid,$emp_id, $date_proc, $check_num){
 		$tat = floor((strtotime($_GLOBALS['date_proc']) - strtotime($_GLOBALS['date_rec']))/86400); //WALA PA HOLIDAYS	
@@ -69,21 +71,27 @@ mysql_query($q) or die(mysql_error());
 		$q= "INSERT INTO `trails_tbl` (`empID`, `dv_id`,`date`, `remarks`,`status`)
 				 VALUES
 			('".$emp_id."','".$dvid."', '".$date_proc."', '".$remarks."','RELEASE');";	
-		
-		
-		
-		
 				
 			
 		mysql_query($q) or die(mysql_error());
 		
 		echo $q;
 		//mysql_close();	
-				
 		
+	}
 	
-	
-	
+	function returnToProc ($dvid, $emp_id, $date_proc)
+	{
+			$q = "UPDATE `disbursement_db`.`disbursement_tbl` 
+				SET `status` = 'FOR_PROCESS' 
+				WHERE `disbursement_tbl`.`dv_id` = $dvid;";
+				
+		mysql_query($q) or die(mysql_error());
+		
+		$q= "INSERT INTO `trails_tbl` (`empID`, `dv_id`,`date`,`status`)
+				 VALUES
+			('".$emp_id."','".$dvid."', '".$date_proc."', 'Receive Returned DV','FOR_PROCESS');";	
+		mysql_query($q) or die(mysql_error());
 	}
 	
 	
@@ -125,6 +133,12 @@ mysql_query($q) or die(mysql_error());
 		$remarks = null; //TODO
 		$emp_id = 1; //TODO
 		return_dv($tbl_name, $dvid, $date_ret, $remarks, $emp_id);
+	}
+	else if( $action == 'accept')
+	{
+		returnToProc($dvid,$emp_id,$today);
+	
+	
 	}
 	else{
 		//header('Location: ..');
