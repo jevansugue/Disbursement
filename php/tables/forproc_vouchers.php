@@ -77,6 +77,13 @@
 		$s .= "<cell>". $row['tax']."</cell>";
 		$s .= "<cell>". $row['total']."</cell>";
 		$s .= "<cell><![CDATA[". $row['note']."]]></cell>";
+		$s .= "<cell>". $row['invid']."</cell>";
+		$s .= "<cell>". $row['invdate']."</cell>";
+		$s .= "<cell>". $row['amount']."</cell>";
+		$s .= "<cell>". $row['tax']."</cell>";
+		$s .= "<cell>". $row['total']."</cell>";
+		$s .= "<cell><![CDATA[". $row['note']."]]></cell>";
+		
 		$s .= "</row>";
 	}
 	$s .= "</rows>"; 
