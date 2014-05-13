@@ -9,6 +9,8 @@ min-height: 60%;
 min-width: 60%;
 overflow: hidden;
 
+background-image: url('../img/body.gif');
+
 }
 
 
@@ -65,11 +67,19 @@ background-color: none;
 	
 
 }
+.ui-widget-content
+{
+	border: 1px solid #fece2f;
+
+}
 
 #tabs
 {
 	height: 96%;
 	overflow:hidden;
+	border-radius: 0 0 .5em .5em;
+	box-shadow: 5px 5px 5px #888888;
+	
 	
 
 }
@@ -109,25 +119,31 @@ background-color: none;
 #container
 {
 	
-	border: 1px solid black;
+	
 	height: 35em;
 	overflow-x: hidden;
 	overflow-y: auto;
+	margin: .25em .25em;
+	
 	
 }
 #footer
 {
-	border: 1px solid red;
+	
 	height: 10%;
 
 }
 #header
 {
-	border: 1px solid green;
+
 	height: 2.5em;
 	*background-image: url('../img/body.gif');
 	background-color: #fece2f;
 	color: black;
+	border-radius: .5em .5em 0 0;
+		box-shadow: -5px 5px 5px #888888;
+		margin: .25em .25em;
+	
 	
 
 }
@@ -150,11 +166,11 @@ background-color: none;
 	width: 100%;
 	height: ;
 	display: inline-block;
-	border: 1px solid yellow;
+	
 }
 #navBar
 {
-	border: 1px solid red;
+	
 	height: 2.5em;
 	width: 99%;
 	padding: 0 .25em;
@@ -176,6 +192,7 @@ background-color: none;
 	padding: 0px;
 	list-style: none;
 	font-size: medium;
+
 
 }
 
