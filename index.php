@@ -100,15 +100,21 @@
 					
 				  </ul>
 				  <div id="tabs-1">
-					<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-				  </div>
+						<div class='tblWrapper'>
+						
+						</div>
+					</div>
 				  <div id="tabs-2">
 					<table id="forproc-vouchers"></table> 
 					<div id="forproc-vouchers-pager"></div> 
 				  </div>
 				  <div id="tabs-3">
-					<table id="processing-vouchers"></table> 
-					<div id="processing-vouchers-pager"></div> 
+					<div class='tblWrapper'>
+					
+						<table id="processing-vouchers"></table> 
+						<div id="processing-vouchers-pager"></div>
+					
+					</div>
 				  </div>
 				  
 				   <div id="tabs-4">
@@ -132,7 +138,7 @@
 	</body>
 	
 	<div id='footer'>
-		<!-- &copy; 2014 MPI Interns. All Rights Reserved. -->
+		 &copy; 2014 MPI Interns. All Rights Reserved.
 	</div>
 
 

@@ -63,7 +63,7 @@ background-color: none;
 	overflow-y: hidden;
 	
 	position: absolute;
-	margin-left: 20.7%;
+	margin-left: 22%;
 	
 
 }
@@ -217,4 +217,12 @@ background-color: none;
 	color:  !important; 
 	font-weight: bold !important;
 	
+}
+
+.tblWrapper
+{
+
+	padding: 0 .25em;
+	
+
 }
