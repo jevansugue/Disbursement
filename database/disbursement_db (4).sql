@@ -84,6 +84,17 @@ INSERT INTO `users_tbl` (`empID`, `username`, `password`, `deptartment`) VALUES
 ('accounting-supervisor', 'acct-super', 'password', 'accounting'),
 ('administrator', 'admin', 'password', 'IT');
 
+--
+-- Table structure for table `checks_tbl`
+--
+
+CREATE TABLE IF NOT EXISTS `CTA_tbl` (
+  `date_credited` date NOT NULL,
+  `dv_id` varchar(255) NOT NULL,
+  KEY `dv_id` (`dv_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `checks_tbl`
@@ -132,6 +143,12 @@ ALTER TABLE `OR_tbl`
 ALTER TABLE `checks_tbl`
   ADD CONSTRAINT `dv_id_checks_fk` FOREIGN KEY (`dv_id`) REFERENCES `disbursement_tbl` (`dv_id`);
 
+--
+-- Constraints for table `CTA_tbl`
+--
+ALTER TABLE `CTA_tbl`
+  ADD CONSTRAINT `dv_id_CTA_fk` FOREIGN KEY (`dv_id`) REFERENCES `disbursement_tbl` (`dv_id`); 
+  
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
