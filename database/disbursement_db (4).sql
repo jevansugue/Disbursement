@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `disbursement_tbl` (
   `tax_req` varchar(255) DEFAULT NULL,
   `tin_num` varchar(255) DEFAULT NULL,
   `nat_of_pay` varchar(255) DEFAULT NULL,
-  `status` enum('REVIEW','PROCESSING','RETURNED','RELEASE') NOT NULL,
+  `status` enum('FOR_PROC','PROCESSING','RETURNED','RELEASE') NOT NULL,
 
   PRIMARY KEY (`dv_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `trails_tbl` (
   `dv_id` varchar(255) NOT NULL,
   `date_stamp` timestamp NOT NULL,
   `remarks` varchar(255) DEFAULT NULL,
-  `status` enum('REVIEW','PROCESSING','RETURNED','RELEASE') NOT NULL,
+  `status` enum('FOR_PROC','PROCESSING','RETURNED','RELEASE') NOT NULL,
   KEY `dv_id` (`dv_id`),
   KEY `empID_fk` (`empID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
