@@ -8,6 +8,7 @@
 		
 		<!-- CSS Plugins -->
 			<link rel='stylesheet' type='text/css' href='css/maybank/jquery-ui-custom.css' />
+			<link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
 		
 		<!-- end of CSS Plugins -->
 		
@@ -16,6 +17,8 @@
 		
 			<script  src='js/jquery.js' > </script>
 			<script  src='js/jquery-ui.js' > </script>
+			<script src="js/i18n/grid.locale-en.js" type="text/javascript"></script>
+			<script src="js/jquery.jqGrid.min.js" type="text/javascript"></script>
 		
 		<!-- end of JS Plugins -->
 		
@@ -42,7 +45,11 @@
 		<!-- end of CUSTOM JS -->
 		
 		
+		<!-- JQGRID CUSTOM JS -->
 		
+			<script type="text/javascript" src="js/tables.js"></script>
+		
+		<!-- end of JQGRUD CUSTOM JS -->
 	
 	
 	</head>
@@ -84,33 +91,37 @@
 			<div id="tabs">
 				  <ul>
 					<li><a href="#tabs-1">Encode New Disbursement Voucher</a></li>
-					<li><a href="#tabs-2">Processing Vouchers</a></li>
-					<li><a href="#tabs-3">For Processing Vouchers</a></li>
+					<li><a href="#tabs-2">For Processing Vouchers</a></li>
+					<li><a href="#tabs-3">Processing Vouchers</a></li>
 					<li><a href="#tabs-4">Returned Vouchers</a></li>
 					<li><a href="#tabs-5">View Released Vouchers</a></li>
 					
-					<li><a href="#tabs-6">Reports</a></li>
-					
 				  </ul>
 				  <div id="tabs-1">
-					<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-				  </div>
+						<div class='tblWrapper'>
+						
+						</div>
+					</div>
 				  <div id="tabs-2">
-					<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+					<table id="forproc-vouchers"></table> 
+					<div id="forproc-vouchers-pager"></div> 
 				  </div>
 				  <div id="tabs-3">
-					<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-					<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+					<div class='tblWrapper'>
+					
+						<table id="processing-vouchers"></table> 
+						<div id="processing-vouchers-pager"></div>
+					
+					</div>
 				  </div>
 				  
 				   <div id="tabs-4">
-					<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+					<table id="returned-vouchers"></table> 
+					<div id="returned-vouchers-pager"></div> 
 				  </div>
 				  <div id="tabs-5">
-					<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-				  </div>
-				   <div id="tabs-6">
-					<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+					<table id="released-vouchers"></table> 
+					<div id="released-vouchers-pager"></div> 
 				  </div>
 			</div>
 			
@@ -122,7 +133,7 @@
 	</body>
 	
 	<div id='footer'>
-		<!-- &copy; 2014 MPI Interns. All Rights Reserved. -->
+		 &copy; 2014 MPI Interns. All Rights Reserved.
 	</div>
 
 
