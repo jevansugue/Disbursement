@@ -56,13 +56,18 @@
 	
 	
 	<div id='header'>
+		
 		<div id='hWrapper'>
+		
+			
 		
 			<div id='imgCon'>
 				
 				
 			
 			</div>
+			
+			
 			
 			<div id='navBar'>
 				

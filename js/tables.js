@@ -13,14 +13,15 @@ var proccess_voucher = 	$(function () {
 									{ name: "note", width: 150, sortable: false }
 								],
 								pager: "#processing-vouchers-pager",
-								rowNum: 10,
-								rowList: [10, 20, 30],
+								rowNum: 20,
+								rowList: [20, 30, 40],
 								sortname: "invid",
 								sortorder: "desc",
 								viewrecords: true,
 								gridview: true,
 								autoencode: true,
-								caption: "Processing Vouchers"
+								caption: "Processing Vouchers",
+								
 							}); 
 
 						}); 
@@ -46,8 +47,8 @@ var forproc_voucher = 	$(function () {
 									{ name: "note2", width: 80, sortable: false }
 								],
 								pager: "#forproc-vouchers-pager",
-								rowNum: 30,
-								rowList: [30, 50, 100],
+								rowNum: 20,
+								rowList: [20, 30, 40],
 								sortname: "invid",
 								sortorder: "asc",
 								viewrecords: true,
@@ -73,8 +74,8 @@ var returned_voucher = 	$(function () {
 									{ name: "note", width: 150, sortable: false }
 								],
 								pager: "#returned-vouchers-pager",
-								rowNum: 10,
-								rowList: [10, 20, 30],
+								rowNum: 20,
+								rowList: [20, 30, 40],
 								sortname: "invid",
 								sortorder: "desc",
 								viewrecords: true,
@@ -100,8 +101,8 @@ var released_voucher = 	$(function () {
 									{ name: "note", width: 150, sortable: false }
 								],
 								pager: "#released-vouchers-pager",
-								rowNum: 10,
-								rowList: [10, 20, 30],
+								rowNum: 20,
+								rowList: [20, 30, 40],
 								sortname: "invid",
 								sortorder: "asc",
 								viewrecords: true,
