@@ -1,0 +1,234 @@
+/*
+RESET
+*/
+
+html{
+color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;
+
+min-height: 60%;
+min-width: 60%;
+overflow: hidden;
+
+background-image: url('../img/body.gif');
+
+}
+
+
+
+/* TABS*/
+
+
+.ui-tabs-vertical {
+ width: auto; 
+ 
+ }
+.ui-tabs-vertical .ui-tabs-nav 
+ { 
+ padding: 1em .25em; 
+ float: left; 
+ width: 20%; 
+ height: 90%;
+ overflow-y: auto;
+ 
+ }
+.ui-tabs-vertical .ui-tabs-nav li 
+ { 
+ clear: left; 
+ width: 100%; 
+ border-bottom-width: 1px !important; 
+ border-right-width: 0 !important; 
+ margin: 0 -1px .2em 0; 
+ }
+.ui-tabs-vertical .ui-tabs-nav li a 
+{ 
+display:block; 
+font-size: small !important; 
+}
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active 
+{ 
+padding-bottom: 0;
+border-right-width: 1px;
+border-right-width: 1px; 
+ }
+.ui-tabs-vertical .ui-tabs-panel 
+{ 
+padding: 1em;
+width: 73%;
+background-color: none;
+
+}
+.ui-tabs-panel
+{
+	max-height: 88%;
+	overflow-y: hidden;
+	
+	position: absolute;
+	margin-left: 22%;
+	
+
+}
+.ui-widget-content
+{
+	border: 1px solid #fece2f;
+
+}
+
+#tabs
+{
+	height: 96%;
+	overflow:hidden;
+	border-radius: 0 0 .5em .5em;
+	box-shadow: 5px 5px 5px #888888;
+	
+	
+
+}
+
+
+.ui-tabs-anchor
+{
+	width: 90%;
+}
+.ui-corner-left
+{
+	text-align: center;
+	overflow: hidden;
+
+}
+
+.ui-state-active
+{
+
+
+}
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+	color: #0074c7;
+	text-decoration: none;
+}
+
+#body,#footer, #header
+{
+	padding: .25em;
+	
+	
+}
+
+
+#container
+{
+	
+	
+	height: 35em;
+	overflow-x: hidden;
+	overflow-y: auto;
+	margin: .25em .25em;
+	
+	
+}
+#footer
+{
+	
+	height: 10%;
+
+}
+#header
+{
+
+	height: 2.5em;
+	*background-image: url('../img/body.gif');
+	background-color: #fece2f;
+	color: black;
+	border-radius: .5em .5em 0 0;
+		box-shadow: -5px 5px 5px #888888;
+		margin: .25em .25em;
+	
+	
+
+}
+
+#imgCon
+{
+	margin-top: 3px;
+
+	width: 30em;
+	height: 2.5em;
+	float: left;
+	background-image: url('../img/logo-maybank_world_largest_bank.png');
+	background-repeat: no-repeat;
+	
+
+}
+
+#setImg
+{
+	width: 100%;
+	height: ;
+	display: inline-block;
+	
+}
+#navBar
+{
+	
+	height: 2.5em;
+	width: 99%;
+	padding: 0 .25em;
+	text-align: right;
+	
+
+}
+
+#hWrapper
+{
+	
+	height: 100%;
+}
+
+
+
+.nav {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	font-size: medium;
+
+
+}
+
+.nav li {
+	width: 5em !important; 
+	padding: .25em !important; 
+	float: right;
+	text-align: center;
+}
+
+.nav li a {
+	
+	
+	display: block;
+	padding: 7px 8px;
+	text-decoration: none;
+	
+}
+
+.active{
+
+	color:  !important; 
+	font-weight: bold !important;
+	
+}
+
+.tblWrapper
+{
+
+	padding: 0 .25em;
+	
+
+}
+.ui-jqgrid-bdiv
+{
+	height: 30em !important;
+	
+
+}
